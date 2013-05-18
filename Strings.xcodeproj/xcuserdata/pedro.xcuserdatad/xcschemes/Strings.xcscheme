@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB310C0216FF874E002945EF"
-               BuildableName = "Grafos"
-               BlueprintName = "Grafos"
-               ReferencedContainer = "container:Grafos.xcodeproj">
+               BlueprintIdentifier = "EBFE0758174790E2005E5C25"
+               BuildableName = "Strings"
+               BlueprintName = "Strings"
+               ReferencedContainer = "container:Strings.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB310C0216FF874E002945EF"
-            BuildableName = "Grafos"
-            BlueprintName = "Grafos"
-            ReferencedContainer = "container:Grafos.xcodeproj">
+            BlueprintIdentifier = "EBFE0758174790E2005E5C25"
+            BuildableName = "Strings"
+            BlueprintName = "Strings"
+            ReferencedContainer = "container:Strings.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -44,17 +44,17 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB310C0216FF874E002945EF"
-            BuildableName = "Grafos"
-            BlueprintName = "Grafos"
-            ReferencedContainer = "container:Grafos.xcodeproj">
+            BlueprintIdentifier = "EBFE0758174790E2005E5C25"
+            BuildableName = "Strings"
+            BlueprintName = "Strings"
+            ReferencedContainer = "container:Strings.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB310C0216FF874E002945EF"
-            BuildableName = "Grafos"
-            BlueprintName = "Grafos"
-            ReferencedContainer = "container:Grafos.xcodeproj">
+            BlueprintIdentifier = "EBFE0758174790E2005E5C25"
+            BuildableName = "Strings"
+            BlueprintName = "Strings"
+            ReferencedContainer = "container:Strings.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
