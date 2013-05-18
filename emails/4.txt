@@ -1,0 +1,212 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: rosaldo.rossetti@gmail.com
+Received: by 10.223.157.69 with SMTP id a5csp35619fax;
+        Wed, 9 May 2012 06:45:35 -0700 (PDT)
+Received: by 10.220.63.9 with SMTP id z9mr34392vch.64.1336571134474;
+        Wed, 09 May 2012 06:45:34 -0700 (PDT)
+Return-Path: <sbc-l-bounces@sbc.org.br>
+Received: from grupos.ufrgs.br (grupos.ufrgs.br. [143.54.1.28])
+        by mx.google.com with ESMTP id z9si1377301vdv.112.2012.05.09.06.45.18;
+        Wed, 09 May 2012 06:45:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sbc-l-bounces@sbc.org.br designates 143.54.1.28 as permitted sender) client-ip=143.54.1.28;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of sbc-l-bounces@sbc.org.br designates 143.54.1.28 as permitted sender) smtp.mail=sbc-l-bounces@sbc.org.br
+Received: from grupos.ufrgs.br (localhost [127.0.0.1])
+	by grupos.ufrgs.br (Postfix) with ESMTP id 928D34C1AC;
+	Wed,  9 May 2012 10:45:11 -0300 (BRT)
+X-Original-To: sbc-l@grupos.ufrgs.br
+Delivered-To: sbc-l@grupos.ufrgs.br
+Received: from curly.ufrgs.br (curly.ufrgs.br [143.54.1.48])
+	by grupos.ufrgs.br (Postfix) with ESMTP id 3D1484C286
+	for <sbc-l@grupos.ufrgs.br>; Mon,  7 May 2012 16:09:34 -0300 (BRT)
+Received: from larry.ufrgs.br (larry.ufrgs.br [143.54.100.74])
+	by curly.ufrgs.br (Postfix) with ESMTP id 52E1260576
+	for <sbc-l@grupos.ufrgs.br>; Mon,  7 May 2012 16:09:31 -0300 (BRT)
+Received: from localhost (localhost [127.0.0.1])
+	by larry.ufrgs.br (Postfix) with ESMTP id 4DBE7A2FB
+	for <sbc-l@grupos.ufrgs.br>; Mon,  7 May 2012 16:09:31 -0300 (BRT)
+X-Virus-Scanned: Debian amavisd-new at larry.ufrgs.br
+X-Spam-Flag: NO
+X-Spam-Score: -4.21
+X-Spam-Level: 
+X-Spam-Status: No, score=-4.21 required=6.31 tests=[BAYES_00=-1.9,
+	RCVD_IN_DNSWL_MED=-2.3, T_RP_MATCHES_RCVD=-0.01] autolearn=unavailable,
+	No
+Received: from larry.ufrgs.br ([143.54.100.74])
+	by localhost (larry.ufrgs.br [127.0.0.1]) (amavisd-new, port 10024)
+	with LMTP id nmjsFqhRl-cz for <sbc-l@grupos.ufrgs.br>;
+	Mon,  7 May 2012 16:09:28 -0300 (BRT)
+Received: from smtp-2.dc.uba.ar (smtp-2.dc.uba.ar [157.92.27.62])
+	by larry.ufrgs.br (Postfix) with ESMTP id 4ADF5A3AD
+	for <sbc-l@sbc.org.br>; Mon,  7 May 2012 16:09:27 -0300 (BRT)
+Received: (qmail 20841 invoked from network); 7 May 2012 19:06:55 -0000
+Received: from unknown (HELO listas.dc.uba.ar) ([10.0.0.31])
+	(envelope-sender <alio-bounces@dc.uba.ar>)
+	by smtp-2.dc.uba.ar (qmail-ldap-1.03) with compressed SMTP
+	for <sbc-l@sbc.org.br>; 7 May 2012 19:06:55 -0000
+Received: (qmail 21075 invoked from network); 7 May 2012 19:06:09 -0000
+Received: from unknown (HELO [127.0.0.1]) ([127.0.0.1])
+	(envelope-sender <alio-bounces@dc.uba.ar>)
+	by listas.dc.uba.ar (qmail-ldap-1.03) with SMTP
+	for <felix.mora@enac.fr>; 7 May 2012 19:06:09 -0000
+Received: (qmail 15242 invoked from network); 7 May 2012 18:20:12 -0000
+Received: from unknown ([10.0.0.62])
+	by listas.dc.uba.ar (qmail-ldap-1.03) with QMQP;
+	7 May 2012 18:20:12 -0000
+Delivered-To: CLUSTERHOST smtp-2.dc.uba.ar alio@dc.uba.ar
+Received: (qmail 31694 invoked from network); 7 May 2012 18:19:32 -0000
+Received: from unknown (HELO webmail.dc.uba.ar) ([10.0.0.31])
+	(envelope-sender <irene@dc.uba.ar>)
+	by smtp-2.dc.uba.ar (qmail-ldap-1.03) with SMTP
+	for <alio@dc.uba.ar>; 7 May 2012 18:19:32 -0000
+Received: from 157.92.32.84 (SquirrelMail authenticated user irene)
+	by webmail.dc.uba.ar with HTTP; Mon, 7 May 2012 15:19:32 -0300 (ART)
+Message-ID: <34515.157.92.32.84.1336414772.squirrel@webmail.dc.uba.ar>
+Date: Mon, 7 May 2012 15:19:32 -0300 (ART)
+From: "Irene Loiseau" <irene@dc.uba.ar>
+To: alio@dc.uba.ar
+User-Agent: SquirrelMail/1.4.6
+MIME-Version: 1.0
+X-Priority: 3 (Normal)
+Importance: Normal
+References: 
+In-Reply-To: 
+X-BeenThere: alio@dc.uba.ar
+X-Mailman-Version: 2.1.9
+Precedence: list
+X-UFRGS-MailScanner-ID: 52E1260576.86E7C
+X-UFRGS-MailScanner: Found to be clean
+X-UFRGS-MailScanner-SpamCheck: nao spam (esta em uma lista branca),
+	SpamAssassin (cached, escore=4.51, requerido 8, BAYES_99 6.00,
+	NO_RDNS2 0.01, RM_KNOWN_WEBMAIL -1.50)
+X-UFRGS-MailScanner-From: alio-bounces@dc.uba.ar
+X-Mailman-Approved-At: Wed, 09 May 2012 10:45:07 -0300
+Subject: [Sbc-l] [Alio] TRISTAN VIII- Eighth Triennial Symposium on
+	Transportation	Analysis
+X-BeenThere: sbc-l@sbc.org.br
+List-Id: Lista da Sociedade Brasileira de Computacao <sbc-l.sbc.org.br>
+List-Unsubscribe: <https://grupos.ufrgs.br/mailman/options/sbc-l>,
+	<mailto:sbc-l-request@sbc.org.br?subject=unsubscribe>
+List-Archive: <https://grupos.ufrgs.br/mailman/private/sbc-l>
+List-Post: <mailto:sbc-l@sbc.org.br>
+List-Help: <mailto:sbc-l-request@sbc.org.br?subject=help>
+List-Subscribe: <https://grupos.ufrgs.br/mailman/listinfo/sbc-l>,
+	<mailto:sbc-l-request@sbc.org.br?subject=subscribe>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Sender: sbc-l-bounces@sbc.org.br
+Errors-To: sbc-l-bounces@sbc.org.br
+
+Subject: Eighth Triennial Symposium on Transportation Analysis
+From:    "TRISTAN" <info@tristan.cl>
+--------------------------------------------------------------------------
+
+Call for Abstracts=A0
+
+TRISTAN VIII =96 EIGHTH TRIENNIAL SYMPOSIUM ON TRANSPORTATION ANALYSIS
+June =A09 =96 14, 2013
+San Pedro de Atacama, Chile
+--------------------------------------
+
+The Complex Engineering Systems Institute, ISCI, would like to invite you
+to  submit an abstract to the eighth version of the TRISTAN Triennial
+Symposium.
+
+---------------
+Presentation
+
+TRISTAN is an international scientific conference that provides a high
+quality  forum for the presentation of mathematical models, methodologies
+and computational  results, and for the exchange of ideas and scientific
+discussions on advanced  applications and technologies in transportation.
+
+The scope of the conference is wide and comes from different areas of
+interest within Transportation Science and Operations Research; among the
+most relevant ones, we can mention location and network design, vehicle
+routing, inventory routing, transit system planning, vehicle scheduling,
+railway transportation, marine transportation,freight planning, traffic
+control strategies, fleet management, crew scheduling, supply chain,
+real-time operations, travel demand models.
+
+The seven previous conferences took place in Montr=E9al (Canada, 1991),
+Capri (Italy, 1994), San Juan (Puerto Rico, 1998), San Miguel (Azores
+Islands, 2001), Le Gosier (Guadeloupe, 2004), Phuket (Thailand, 2007) and
+Tromso (Norway, 2010).
+The chosen location for TRISTAN VIII is San Pedro de Atacama, Chile. As in
+
+all previous meetings, we expect to gather top research scientists from
+universities and research institutes from all over the world along with
+scientific participants from private sectors, public agencies, and
+graduate students. This time, the discussions regarding state of the art
+methodological as well as practical issues will take place in the middle
+of the amazing landscapes of one of the recognized most beautiful places
+on earth, an island of civilization in the middle of the desert!
+
+--------------------------------
+
+The conference will be held June 9 to 14, 2013, at the Kunza Hotel & Spa
+(www.hotelkunza.cl) in San Pedro de Atacama. Information about
+registration, airfares, accessibility,
+accommodation in San Pedro, etc., will be published soon on the official
+web site of the Conference, still under construction (www.tristan.cl).
+
+-------------
+Executive Committee
+
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Cristi=E1n E. Cort=E9s, Universidad de Chile =
+(Chair)
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Michel Gendreau, CIRRELT and MAGI, =C9cole Po=
+lytechnique de Montreal
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Pablo A. Rey, Universidad Diego Portales
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Doris S=E1ez, Universidad de Chile
+
+
+Local Organizing Committee
+
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Andr=E9s Weintraub, Universidad de Chile
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Fernando Ord=F3=F1ez, Universidad de Chile
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Francisco Mart=EDnez, Universidad de Chile
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Juan Carlos Mu=F1oz, P. Universidad Cat=F3lic=
+a de Chile
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Ricardo Giesen, P. Universidad Cat=F3lica de =
+Chile
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Vladimir Marianov, P. Universidad Cat=F3lica =
+de Chile
+
+=A0--------------------------
+
+Important Dates and General Information
+
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Extended abstract submission open: July 2nd, =
+2012
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Deadline for extended abstract submission: Se=
+ptember 28th, 2012
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Notification of acceptance: January 31st, 2013
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Deadline for early registration: April 16th, =
+2013
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Deadline for submission of revised extended a=
+bstracts: May 21st,
+
+2013
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Conference: June 9th-14th, 2013
+
+=B7=A0=A0=A0=A0=A0=A0=A0=A0=A0Venue: Kunza Hotel & Spa (www.hotelkunza.cl)
+
+
+(Please feel free to=A0re-distribute=A0this call. We apologize for any cross
+posting)
+
+------------
+
+info@tristan.cl
+
+
+
+
+_______________________________________________
+Alio mailing list
+Alio@dc.uba.ar
+https://listas.dc.uba.ar/cgi-bin/mailman/listinfo/alio
+_______________________________________________
+Sbc-l mailing list
+Sbc-l@sbc.org.br
+https://grupos.ufrgs.br/mailman/listinfo/sbc-l

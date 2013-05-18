@@ -13,12 +13,15 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include <sstream>
+
+#include "lcs.h"
 
 using namespace std;
 
 int numStringMatching(string filename, string toSearch);
 float numApproximateStringMatching(string filename, string toSearch);
+string longestCommonSubsequence(string filename, string toSearch);
+
 vector<int> KMP(string S, string K);
 
 template<class T>

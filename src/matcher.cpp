@@ -39,6 +39,38 @@ float numApproximateStringMatching(string filename, string toSearch){
     return (float)total/words;
 }
 
+string longestCommonSubsequence(string filename, string toSearch){
+    ifstream file;
+    file.open(filename.c_str());
+    
+    if (!file.is_open()){
+        return "oops\n";
+    }
+    
+    string contents;
+    string line;
+    string results;
+    
+    while (file.good()) {
+        getline(file, line);
+        contents += line;
+
+    }
+    file.close();
+    
+    char * X = new char [toSearch.length()+1];
+    strcpy(X, toSearch.c_str());
+    
+    char * Y = new char [contents.length()+1];
+    strcpy (Y, contents.c_str());
+    vector<char> result;
+    
+    LCS::findOne(X, strlen(X), Y, strlen(Y), result);
+    string resultString(&result.front(), result.size());
+    return resultString;
+
+}
+
 
 //----------------------------
 //Returns a vector containing the zero based index of

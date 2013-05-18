@@ -14,6 +14,7 @@
 #include <vector>
 
 #include "lcs.h"
+#include "matcher.h"
 
 using namespace std;
 

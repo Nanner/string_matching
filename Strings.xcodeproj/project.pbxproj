@@ -10,17 +10,37 @@
 		EBFE07681747911F005E5C25 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBFE07661747911F005E5C25 /* main.cpp */; };
 		EBFE076B174791BA005E5C25 /* matcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBFE0769174791BA005E5C25 /* matcher.cpp */; };
 		EBFE076E174791EF005E5C25 /* lcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBFE076C174791EF005E5C25 /* lcs.cpp */; };
+		EBFE07A21747D504005E5C25 /* 1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE07981747D4E4005E5C25 /* 1.txt */; };
+		EBFE07A31747D504005E5C25 /* 10.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE07991747D4E4005E5C25 /* 10.txt */; };
+		EBFE07A41747D504005E5C25 /* 2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE079A1747D4E4005E5C25 /* 2.txt */; };
+		EBFE07A51747D504005E5C25 /* 3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE079B1747D4E4005E5C25 /* 3.txt */; };
+		EBFE07A61747D504005E5C25 /* 4.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE079C1747D4E4005E5C25 /* 4.txt */; };
+		EBFE07A71747D504005E5C25 /* 5.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE079D1747D4E4005E5C25 /* 5.txt */; };
+		EBFE07A81747D504005E5C25 /* 6.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE079E1747D4E4005E5C25 /* 6.txt */; };
+		EBFE07A91747D504005E5C25 /* 7.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE079F1747D4E4005E5C25 /* 7.txt */; };
+		EBFE07AA1747D504005E5C25 /* 8.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE07A01747D4E4005E5C25 /* 8.txt */; };
+		EBFE07AB1747D504005E5C25 /* 9.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE07A11747D4E4005E5C25 /* 9.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		EBFE0757174790E2005E5C25 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				EBFE07A21747D504005E5C25 /* 1.txt in CopyFiles */,
+				EBFE07A31747D504005E5C25 /* 10.txt in CopyFiles */,
+				EBFE07A41747D504005E5C25 /* 2.txt in CopyFiles */,
+				EBFE07A51747D504005E5C25 /* 3.txt in CopyFiles */,
+				EBFE07A61747D504005E5C25 /* 4.txt in CopyFiles */,
+				EBFE07A71747D504005E5C25 /* 5.txt in CopyFiles */,
+				EBFE07A81747D504005E5C25 /* 6.txt in CopyFiles */,
+				EBFE07A91747D504005E5C25 /* 7.txt in CopyFiles */,
+				EBFE07AA1747D504005E5C25 /* 8.txt in CopyFiles */,
+				EBFE07AB1747D504005E5C25 /* 9.txt in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -32,6 +52,16 @@
 		EBFE076A174791BA005E5C25 /* matcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matcher.h; sourceTree = "<group>"; };
 		EBFE076C174791EF005E5C25 /* lcs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lcs.cpp; sourceTree = "<group>"; };
 		EBFE076D174791EF005E5C25 /* lcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lcs.h; sourceTree = "<group>"; };
+		EBFE07981747D4E4005E5C25 /* 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
+		EBFE07991747D4E4005E5C25 /* 10.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10.txt; sourceTree = "<group>"; };
+		EBFE079A1747D4E4005E5C25 /* 2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2.txt; sourceTree = "<group>"; };
+		EBFE079B1747D4E4005E5C25 /* 3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3.txt; sourceTree = "<group>"; };
+		EBFE079C1747D4E4005E5C25 /* 4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 4.txt; sourceTree = "<group>"; };
+		EBFE079D1747D4E4005E5C25 /* 5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5.txt; sourceTree = "<group>"; };
+		EBFE079E1747D4E4005E5C25 /* 6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 6.txt; sourceTree = "<group>"; };
+		EBFE079F1747D4E4005E5C25 /* 7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 7.txt; sourceTree = "<group>"; };
+		EBFE07A01747D4E4005E5C25 /* 8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 8.txt; sourceTree = "<group>"; };
+		EBFE07A11747D4E4005E5C25 /* 9.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +78,7 @@
 		EBFE0750174790E2005E5C25 = {
 			isa = PBXGroup;
 			children = (
+				EBFE07971747D4E4005E5C25 /* emails */,
 				EBFE07651747911F005E5C25 /* src */,
 				EBFE075A174790E2005E5C25 /* Products */,
 			);
@@ -72,6 +103,23 @@
 				EBFE076D174791EF005E5C25 /* lcs.h */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		EBFE07971747D4E4005E5C25 /* emails */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE07981747D4E4005E5C25 /* 1.txt */,
+				EBFE07991747D4E4005E5C25 /* 10.txt */,
+				EBFE079A1747D4E4005E5C25 /* 2.txt */,
+				EBFE079B1747D4E4005E5C25 /* 3.txt */,
+				EBFE079C1747D4E4005E5C25 /* 4.txt */,
+				EBFE079D1747D4E4005E5C25 /* 5.txt */,
+				EBFE079E1747D4E4005E5C25 /* 6.txt */,
+				EBFE079F1747D4E4005E5C25 /* 7.txt */,
+				EBFE07A01747D4E4005E5C25 /* 8.txt */,
+				EBFE07A11747D4E4005E5C25 /* 9.txt */,
+			);
+			path = emails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

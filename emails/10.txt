@@ -1,0 +1,622 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: rosaldo.rossetti@gmail.com
+Received: by 10.223.6.144 with SMTP id 16csp100395faz;
+        Mon, 2 Apr 2012 04:09:36 -0700 (PDT)
+Received: by 10.180.107.101 with SMTP id hb5mr28017079wib.3.1333364973145;
+        Mon, 02 Apr 2012 04:09:33 -0700 (PDT)
+Return-Path: <eco@fe.up.pt>
+Received: from smtp.fe.up.pt (smtp.fe.up.pt. [193.136.28.30])
+        by mx.google.com with ESMTP id k51si18188633weq.1.2012.04.02.04.09.32;
+        Mon, 02 Apr 2012 04:09:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of eco@fe.up.pt designates 193.136.28.30 as permitted sender) client-ip=193.136.28.30;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of eco@fe.up.pt designates 193.136.28.30 as permitted sender) smtp.mail=eco@fe.up.pt
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.fe.up.pt (Postfix) with ESMTP id 9245DEF930
+	for <rosaldo.rossetti@gmail.com>; Mon,  2 Apr 2012 12:09:32 +0100 (WEST)
+Received: from smtp.fe.up.pt ([127.0.0.1])
+	by localhost (smtp1.fe.up.pt [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id liQC5oqxgTBi for <rosaldo.rossetti@gmail.com>;
+	Mon,  2 Apr 2012 12:09:32 +0100 (WEST)
+Received: from mbx2.fe.up.pt (mail.fe.up.pt [193.136.28.29])
+	by smtp.fe.up.pt (Postfix) with ESMTP id 61481EF947
+	for <rosaldo.rossetti@gmail.com>; Mon,  2 Apr 2012 12:09:32 +0100 (WEST)
+Received: by mbx2.fe.up.pt (Postfix, from userid 33513)
+	id 90599711EC; Mon,  2 Apr 2012 12:09:32 +0100 (WEST)
+X-Sieve: Dovecot Sieve 0.1.18
+X-Original-To: rossetti@mail.fe.up.pt
+Delivered-To: rossetti@mail.fe.up.pt
+Received: from smtp.fe.up.pt (smtp1.fe.up.pt [192.168.150.33])
+	by mbx2.fe.up.pt (Postfix) with ESMTP id 149DB711E0;
+	Mon,  2 Apr 2012 12:09:32 +0100 (WEST)
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.fe.up.pt (Postfix) with ESMTP id AE0BFEF932;
+	Mon,  2 Apr 2012 12:09:31 +0100 (WEST)
+Received: from smtp.fe.up.pt ([127.0.0.1])
+	by localhost (smtp1.fe.up.pt [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id sag8S4tiByss; Mon,  2 Apr 2012 12:09:31 +0100 (WEST)
+Received: from [192.168.102.39] (simon.fe.up.pt [192.168.102.39])
+	by smtp.fe.up.pt (Postfix) with ESMTPA id 52CF3EF930;
+	Mon,  2 Apr 2012 12:09:31 +0100 (WEST)
+Message-ID: <4F7988EF.7070909@fe.up.pt>
+Date: Mon, 02 Apr 2012 12:09:35 +0100
+From: =?ISO-8859-1?Q?Eug=E9nio_Oliveira?= <eco@fe.up.pt>
+User-Agent: Mozilla/5.0 (Windows NT 6.0; rv:11.0) Gecko/20120312 Thunderbird/11.0
+MIME-Version: 1.0
+To: =?ISO-8859-1?Q?Eug=E9nio_Oliveira?= <eco@fe.up.pt>, 
+ arocha <arocha@fe.up.pt>,
+ lpreis <lpreis@fe.up.pt>, hlc <hlc@fe.up.pt>, malu <malu@ppgia.pucpr.br>, 
+ Luis Sarmento <las@fe.up.pt>,
+ =?ISO-8859-1?Q?C=E9lia_Talma_Martins?= <talma@fe.up.pt>, 
+ =?ISO-8859-1?Q?Ant=F3nio_Pereira?= <amcp@fe.up.pt>, 
+ Alexessander Couto Alves <alves@ieee.org>,
+ =?ISO-8859-1?Q?Andr=E9_Restivo?= <arestivo@fe.up.pt>, 
+ Antonio Castro <frisky.antonio@gmail.com>,
+ Luis Mota <luis.mota@iscte.pt>, Rosaldo Rossetti <rossetti@fe.up.pt>, 
+ mbnm <mbm@isep.ipp.pt>,
+ Rodrigo Braga <rodrigo.braga@fe.up.pt>, 
+ Pedro Valente <pedro.valente@fe.up.pt>,
+ Daniel Silva <pro06013@fe.up.pt>, Pedro Abreu <pedro.abreu@fe.up.pt>, 
+ Daniel Moura <daniel.moura@fe.up.pt>,
+ Joana Urbano <pro06011@fe.up.pt>, Francisco Restivo <frestivo@gmail.com>, 
+ =?ISO-8859-1?Q?Jo=E3o_Lobato_Oliveira?= <ee03123@fe.up.pt>, 
+ teixeira.jorge@fe.up.pt, 'Claudia-Melania Chituc' <cmchituc@fe.up.pt>, 
+ =?ISO-8859-1?Q?M=F3nica_Faria?= <moni.faria@gmail.com>, 
+ rmfmrodrigues@gmail.com, jbarbosa <jbarbosa@fe.up.pt>, 
+ =?ISO-8859-1?Q?Paulo_Leit=E3o?= <pleitao@ipb.pt>, 
+ Marcelo Petry <marcelo.petry@gmail.com>,
+ Rodrigo Braga <rodrigo.braga@fe.up.pt>, Pedro Neto <pro09012@fe.up.pt>, 
+ Gustavo Laboreiro <gustavo.laboreiro@gmail.com>,
+ Joaquim Silva <jffs.992@gmail.com>, =?ISO-8859-1?Q?L=FAcio_Passos?=
+ <pro09026@fe.up.pt>, Vasco Vinhas Moreira <vvm@fe.up.pt>, 
+ =?ISO-8859-1?Q?Ant=F3nio_Pedro_Costa?= <apcosta@ua.pt>, 
+ Pedro Vale Moreira <pmoreira@estg.ipvc.pt>,
+ Catarina Santiago <catarina.santiago@fe.up.pt>, =?ISO-8859-1?Q?Luis_Te?=
+ =?ISO-8859-1?Q?=F3filo?= <luisfgteofilo@gmail.com>, 
+ Paula Rego <paularego@estg.ipvc.pt>,
+ Fernando Almeida <falmeida@estv.ipv.pt>, 
+ zafeiris kokkinogenis <zafeiris.kokkinogenis@gmail.com>,
+ j.emilio.almeida@gmail.com, =?ISO-8859-1?Q?Jos=E9_Luis_Pereira?=
+ <onaips@gmail.com>, Ivo Timoteo <ivotimoteo@gmail.com>, 
+ =?ISO-8859-1?Q?Miguel_Ara=FAjo?= <miguel.araujo@fe.up.pt>, 
+ "Luis A. Sarmento" <luis-a-sarmento@telecom.pt>,
+ Nima Shafii <nima.shafii@gmail.com>, 
+ Pedro Vale Moreira <pmoreira@estg.ipvc.pt>
+Subject: Fwd: [mc] 1st CfP: AT 2012 -- First International Conference on Agreement
+ Technologies
+References: <4F76091F.9060804@urjc.es>
+In-Reply-To: <4F76091F.9060804@urjc.es>
+X-Forwarded-Message-Id: <4F76091F.9060804@urjc.es>
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha1; boundary="------------ms040104060000030502080004"
+
+This is a cryptographically signed message in MIME format.
+
+--------------ms040104060000030502080004
+Content-Type: multipart/alternative;
+ boundary="------------030300030508010606050609"
+
+This is a multi-part message in MIME format.
+--------------030300030508010606050609
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: quoted-printable
+
+
+
+-------- Original Message --------
+Subject: 	[mc] 1st CfP: AT 2012 -- First International Conference on=20
+Agreement Technologies
+Date: 	Fri, 30 Mar 2012 21:27:27 +0200
+From: 	Sascha Ossowski <sascha.ossowski@urjc.es>
+Organisation: 	CETINIA - URJC
+To: 	mc@agreement-technologies.eu
+
+
+
+[Apologies if you receive this more than once]
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+C A L L  F O R  P A P E R S
+AT 2012
+First International Conference on Agreement Technologies
+
+October 15 - 16, 2012 in Dubrovnik, Croatia
+http://at2012.tel.fer.hr/
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+AIMS&  SCOPE =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D
+
+Agreement Technologies refer to computer systems in which autonomous
+software agents negotiate with one another, typically on behalf of
+humans, in order to come to mutually acceptable agreements. An agent may
+choose whether to fulfil an agreement or not, and it should fulfil it
+when there is an obligation to do so derived from the standing
+agreements. Autonomy, interaction, mobility and openness are key
+concepts studied within the Agreement Technologies approach.
+
+Semantic alignment, negotiation, argumentation, virtual organisations,
+trust and reputation and several other technologies are part of the
+sandbox to define, specify and verify such systems. The first
+International Conference on Agreement Technologies is an
+interdisciplinary forum that brings together researchers and
+practitioners working on the various topics comprising this emergent and
+vibrant field. It provides an avenue to discuss and exchange new ideas
+and techniques for the design, implementation and verification of next
+generation open distributed systems centred on the notion of agreement
+among computational agents.
+
+The conference is supported by COST Action IC0801 on Agreement Technologi=
+es.
+
+
+TOPICS OF INTEREST =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+- Argumentation, negotiation
+
+- Trust and reputation
+
+- Coordination and distributed decision making
+
+- Computational Social Choice
+
+- Semantic alignment
+
+- Inter-theory Relations
+
+- Decision and game theoretic foundations for agreement
+
+- Agent Commitments
+
+- Semantic Service Coordination
+
+- Normative Systems
+
+- Individual reasoning about norm adoption
+
+- Collective deliberation about norm adoption
+
+- Autonomic Electronic Institutions
+
+- Group planning agreements
+
+- Deliberative Agreement: social choice and collective judgment
+
+- Evolution of organisational structures
+
+- Social Intelligence
+
+- Logics for Agreements
+
+- Real-time agreements
+
+- Agreement patterns
+
+- Agreement technologies architectures, environments and methodologies
+
+- Applications of agreement technologies (e.g. web service composition,
+contract automation, supply chain automation, sensor networks, etc.)
+
+
+SUBMISSION DETAILS =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+We encourage submission of original papers from the above-mentioned or
+other related areas.
+
+Each submission should be in one of the following categories:
+
+Full Papers:
+Papers in this category should represent original and previously
+unpublished work that is currently not under review in any conference or
+journal. Both basic and applied research papers are welcome. Papers
+should not exceed 15 pages including references and figures.
+
+Position Papers:
+Contributions in this category may represent either a summary of
+original work that has already been published in a conference or journal
+(in this case submissions must include explicitly a reference to the
+already published work), or a summary of original results obtained as a
+product of STSMs funded by the Agreement Technologies Cost Action, or
+ongoing research that can lead to important contributions to Agreement
+Technologies. Submissions in this category should not exceed 2 pages.
+
+All submissions must be written in English and formatted according to
+the Springer LNCS style, which can be obtained from
+http://www.springer.de/comp/lncs/authors.html.
+
+Submissions must be done via easychair at
+https://www.easychair.org/conferences/?conf=3Dat2012
+
+All papers will be reviewed. The conference proceedings will be
+published with CEUR-WS.org. We also plan a special issue of an ISI
+ranked Journal for extended versions of high-quality papers describing
+original, novel research. Further details will be announced soon.
+
+
+
+IMPORTANT DATES =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D
+
+Abstracts due: June 20, 2012
+
+Full papers due: June 25, 2012
+
+Notification: July 20, 2012
+
+Camera-ready submission: September 9, 2012
+
+AT-2012 conference: October 15-16, 2012
+
+
+CONFERENCE OFFICIALS =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+Conference Chair:
+Sascha Ossowski (University Rey Juan Carlos, Spain)
+
+Programme Chairs:
+Francesca Toni (Imperial College London, UK)
+George Vouros (University of Piraeus, Greece)
+
+Local Chairs and Organisation:
+Gordan Jezic, University of Zagreb, Croatia
+Mario Kusek, University of Zagreb, Croatia
+Marin Lujak, University Rey Juan Carlos, Spain
+Tanja Grzilo, University of Zagreb, CAAS Dubrovnik, Croatia
+
+
+CONTACT =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Email: at2012@agreement-technologies.eu
+Web: http://at2012.tel.fer.hr/
+
+
+
+_______________________________________________
+mc mailing list
+mc@agreement-technologies.eu
+http://www.agreement-technologies.eu/mailman/listinfo/mc
+
+
+
+--------------030300030508010606050609
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+  <head>
+
+    <meta http-equiv=3D"content-type" content=3D"text/html; charset=3DISO=
+-8859-1">
+  </head>
+  <body bgcolor=3D"#FFFFFF" text=3D"#000000">
+    <br>
+    <br>
+    -------- Original Message --------
+    <table class=3D"moz-email-headers-table" border=3D"0" cellpadding=3D"=
+0"
+      cellspacing=3D"0">
+      <tbody>
+        <tr>
+          <th align=3D"RIGHT" nowrap=3D"nowrap" valign=3D"BASELINE">Subje=
+ct: </th>
+          <td>[mc] 1st CfP: AT 2012 -- First International Conference on
+            Agreement Technologies</td>
+        </tr>
+        <tr>
+          <th align=3D"RIGHT" nowrap=3D"nowrap" valign=3D"BASELINE">Date:=
+ </th>
+          <td>Fri, 30 Mar 2012 21:27:27 +0200</td>
+        </tr>
+        <tr>
+          <th align=3D"RIGHT" nowrap=3D"nowrap" valign=3D"BASELINE">From:=
+ </th>
+          <td>Sascha Ossowski <a class=3D"moz-txt-link-rfc2396E" href=3D"=
+mailto:sascha.ossowski@urjc.es">&lt;sascha.ossowski@urjc.es&gt;</a></td>
+        </tr>
+        <tr>
+          <th align=3D"RIGHT" nowrap=3D"nowrap" valign=3D"BASELINE">Organ=
+isation:
+          </th>
+          <td>CETINIA - URJC</td>
+        </tr>
+        <tr>
+          <th align=3D"RIGHT" nowrap=3D"nowrap" valign=3D"BASELINE">To: <=
+/th>
+          <td><a class=3D"moz-txt-link-abbreviated" href=3D"mailto:mc@agr=
+eement-technologies.eu">mc@agreement-technologies.eu</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <pre>[Apologies if you receive this more than once]
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+C A L L  F O R  P A P E R S
+AT 2012
+First International Conference on Agreement Technologies
+
+October 15 - 16, 2012 in Dubrovnik, Croatia
+<a class=3D"moz-txt-link-freetext" href=3D"http://at2012.tel.fer.hr/">htt=
+p://at2012.tel.fer.hr/</a>
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+AIMS &amp; SCOPE =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Agreement Technologies refer to computer systems in which autonomous
+software agents negotiate with one another, typically on behalf of
+humans, in order to come to mutually acceptable agreements. An agent may
+choose whether to fulfil an agreement or not, and it should fulfil it
+when there is an obligation to do so derived from the standing
+agreements. Autonomy, interaction, mobility and openness are key
+concepts studied within the Agreement Technologies approach.
+
+Semantic alignment, negotiation, argumentation, virtual organisations,
+trust and reputation and several other technologies are part of the
+sandbox to define, specify and verify such systems. The first
+International Conference on Agreement Technologies is an
+interdisciplinary forum that brings together researchers and
+practitioners working on the various topics comprising this emergent and
+vibrant field. It provides an avenue to discuss and exchange new ideas
+and techniques for the design, implementation and verification of next
+generation open distributed systems centred on the notion of agreement
+among computational agents.
+
+The conference is supported by COST Action IC0801 on Agreement Technologi=
+es.
+
+
+TOPICS OF INTEREST =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+- Argumentation, negotiation
+
+- Trust and reputation
+
+- Coordination and distributed decision making
+
+- Computational Social Choice
+
+- Semantic alignment
+
+- Inter-theory Relations
+
+- Decision and game theoretic foundations for agreement
+
+- Agent Commitments
+
+- Semantic Service Coordination
+
+- Normative Systems
+
+- Individual reasoning about norm adoption
+
+- Collective deliberation about norm adoption
+
+- Autonomic Electronic Institutions
+
+- Group planning agreements
+
+- Deliberative Agreement: social choice and collective judgment
+
+- Evolution of organisational structures
+
+- Social Intelligence
+
+- Logics for Agreements
+
+- Real-time agreements
+
+- Agreement patterns
+
+- Agreement technologies architectures, environments and methodologies
+
+- Applications of agreement technologies (e.g. web service composition,
+contract automation, supply chain automation, sensor networks, etc.)
+
+
+SUBMISSION DETAILS =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+We encourage submission of original papers from the above-mentioned or
+other related areas.
+
+Each submission should be in one of the following categories:
+
+Full Papers:
+Papers in this category should represent original and previously
+unpublished work that is currently not under review in any conference or
+journal. Both basic and applied research papers are welcome. Papers
+should not exceed 15 pages including references and figures.
+
+Position Papers:
+Contributions in this category may represent either a summary of
+original work that has already been published in a conference or journal
+(in this case submissions must include explicitly a reference to the
+already published work), or a summary of original results obtained as a
+product of STSMs funded by the Agreement Technologies Cost Action, or
+ongoing research that can lead to important contributions to Agreement
+Technologies. Submissions in this category should not exceed 2 pages.
+
+All submissions must be written in English and formatted according to
+the Springer LNCS style, which can be obtained from
+<a class=3D"moz-txt-link-freetext" href=3D"http://www.springer.de/comp/ln=
+cs/authors.html">http://www.springer.de/comp/lncs/authors.html</a>.
+
+Submissions must be done via easychair at
+<a class=3D"moz-txt-link-freetext" href=3D"https://www.easychair.org/conf=
+erences/?conf=3Dat2012">https://www.easychair.org/conferences/?conf=3Dat2=
+012</a>
+
+All papers will be reviewed. The conference proceedings will be
+published with CEUR-WS.org. We also plan a special issue of an ISI
+ranked Journal for extended versions of high-quality papers describing
+original, novel research. Further details will be announced soon.
+
+
+
+IMPORTANT DATES =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D
+
+Abstracts due: June 20, 2012
+
+Full papers due: June 25, 2012
+
+Notification: July 20, 2012
+
+Camera-ready submission: September 9, 2012
+
+AT-2012 conference: October 15-16, 2012
+
+
+CONFERENCE OFFICIALS =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+Conference Chair:
+Sascha Ossowski (University Rey Juan Carlos, Spain)
+
+Programme Chairs:
+Francesca Toni (Imperial College London, UK)
+George Vouros (University of Piraeus, Greece)
+
+Local Chairs and Organisation:
+Gordan Jezic, University of Zagreb, Croatia
+Mario Kusek, University of Zagreb, Croatia
+Marin Lujak, University Rey Juan Carlos, Spain
+Tanja Grzilo, University of Zagreb, CAAS Dubrovnik, Croatia
+
+
+CONTACT =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Email: <a class=3D"moz-txt-link-abbreviated" href=3D"mailto:at2012@agreem=
+ent-technologies.eu">at2012@agreement-technologies.eu</a>
+Web: <a class=3D"moz-txt-link-freetext" href=3D"http://at2012.tel.fer.hr/=
+">http://at2012.tel.fer.hr/</a>
+
+
+
+_______________________________________________
+mc mailing list
+<a class=3D"moz-txt-link-abbreviated" href=3D"mailto:mc@agreement-technol=
+ogies.eu">mc@agreement-technologies.eu</a>
+<a class=3D"moz-txt-link-freetext" href=3D"http://www.agreement-technolog=
+ies.eu/mailman/listinfo/mc">http://www.agreement-technologies.eu/mailman/=
+listinfo/mc</a>
+
+</pre>
+  </body>
+</html>
+
+--------------030300030508010606050609--
+
+--------------ms040104060000030502080004
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExCzAJBgUrDgMCGgUAMIAGCSqGSIb3DQEHAQAAoIIP6jCC
+BIowggNyoAMCAQICECf06hH0eobEbp27bqkXBwcwDQYJKoZIhvcNAQEFBQAwbzELMAkGA1UE
+BhMCU0UxFDASBgNVBAoTC0FkZFRydXN0IEFCMSYwJAYDVQQLEx1BZGRUcnVzdCBFeHRlcm5h
+bCBUVFAgTmV0d29yazEiMCAGA1UEAxMZQWRkVHJ1c3QgRXh0ZXJuYWwgQ0EgUm9vdDAeFw0w
+NTA2MDcwODA5MTBaFw0yMDA1MzAxMDQ4MzhaMIGuMQswCQYDVQQGEwJVUzELMAkGA1UECBMC
+VVQxFzAVBgNVBAcTDlNhbHQgTGFrZSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5l
+dHdvcmsxITAfBgNVBAsTGGh0dHA6Ly93d3cudXNlcnRydXN0LmNvbTE2MDQGA1UEAxMtVVRO
+LVVTRVJGaXJzdC1DbGllbnQgQXV0aGVudGljYXRpb24gYW5kIEVtYWlsMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsjmFpPJ9q0E7YkY3rs3BYHW8OWX5ShpHornMSMxqmNVN
+NRm5pELlzkniii8efNIxB8dOtINknS4p1aJkxIW9hVE1eaROaJB7HHqkkqgX8pgV8pPMyaQy
+lbsMTzC9mKALi+VuG6JG+ni8om+rWV6lL8/K2m2qL+usobNqqrcuZzWLeeEeaYji5kbNoKXq
+vgvOdjp6Dpvq/NonWz1zHyLmSGHGTPNpsaguG7bUMSAsvIKKjqQOpdeJQ/wWWq8dcdcRWdq6
+hw2v+vPhwvCkxWeM1tZUOt4KpLoDd7NlyP0e03RiqhjKaJMeoYV+9Udly/hNVyh00jT/MLbu
+9mIwFIws6wIDAQABo4HhMIHeMB8GA1UdIwQYMBaAFK29mHo0tCb3+sQmVO8DveAky1QaMB0G
+A1UdDgQWBBSJgmd9xJ0mcABLtFBIfN49rgRufTAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0TAQH/
+BAUwAwEB/zB7BgNVHR8EdDByMDigNqA0hjJodHRwOi8vY3JsLmNvbW9kb2NhLmNvbS9BZGRU
+cnVzdEV4dGVybmFsQ0FSb290LmNybDA2oDSgMoYwaHR0cDovL2NybC5jb21vZG8ubmV0L0Fk
+ZFRydXN0RXh0ZXJuYWxDQVJvb3QuY3JsMA0GCSqGSIb3DQEBBQUAA4IBAQAZ2IkRbyispgCi
+54fBm5AD236hEv0e8+LwAamUVEJrmgnEoG3XkJIEA2Z5Q3H8+G+v23ZF4jcaPd3kWQR4rBz0
+g0bzes9bhHIt5UbBuhgRKfPLSXmHPLptBZ2kbWhPrXIUNqi5sf2/z3/wpGqUNVCPz4FtVbHd
+WTBK322gnGQfSXzvNrv042n0+DmPWq1LhTq3Du3Tzw1EovsEv+QvcI4l+1pUBrPQxLxtjftz
+Mizpm4QkLdZ/kXpoAlAfDj9N6cz1u2fo3BwuO/xOzf4CjuOoEwqlJkRl6RDyTVKnrtw+ymsy
+XEFs/vVdoOr/0fqbhlhtPZZH5f4ulQTCAMyOofK7MIIFGjCCBAKgAwIBAgIQbRnqpxlPajMi
+5iIyeqpx3jANBgkqhkiG9w0BAQUFADCBrjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAlVUMRcw
+FQYDVQQHEw5TYWx0IExha2UgQ2l0eTEeMBwGA1UEChMVVGhlIFVTRVJUUlVTVCBOZXR3b3Jr
+MSEwHwYDVQQLExhodHRwOi8vd3d3LnVzZXJ0cnVzdC5jb20xNjA0BgNVBAMTLVVUTi1VU0VS
+Rmlyc3QtQ2xpZW50IEF1dGhlbnRpY2F0aW9uIGFuZCBFbWFpbDAeFw0xMTA0MjgwMDAwMDBa
+Fw0yMDA1MzAxMDQ4MzhaMIGTMQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5j
+aGVzdGVyMRAwDgYDVQQHEwdTYWxmb3JkMRowGAYDVQQKExFDT01PRE8gQ0EgTGltaXRlZDE5
+MDcGA1UEAxMwQ09NT0RPIENsaWVudCBBdXRoZW50aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWls
+IENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkoSEW0tXmNReL4uk4UDIo1NY
+X2Zl8TJO958yfVXQeExVt0KU4PkncQfFxmmkuTLE8UAakMwnVmJ/F7Vxaa7lIBvky2NeYMqi
+QfZq4aP/uN8fSG1lQ4wqLitjOHffsReswtqCAtbUMmrUZ28gE49cNfrlVICv2HEKHTcKAlBT
+bJUdqRAUtJmVWRIx/wmi0kzcUtve4kABW0ho3cVKtODtJB86r3FfB+OsvxQ7sCVxaD30D9YX
+WEYVgTxoi4uDD216IVfmNLDbMn7jSuGlUnJkJpFOpZIP/+CxYP0ab2hRmWONGoulzEKbm30i
+Y9OpoPzOnpDfRBn0XFs1uhbzp5v/wQIDAQABo4IBSzCCAUcwHwYDVR0jBBgwFoAUiYJnfcSd
+JnAAS7RQSHzePa4Ebn0wHQYDVR0OBBYEFHoTTgB0W8Z4Y2QnwS/ioFu8ecV7MA4GA1UdDwEB
+/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEAMBEGA1UdIAQKMAgwBgYEVR0gADBYBgNVHR8E
+UTBPME2gS6BJhkdodHRwOi8vY3JsLnVzZXJ0cnVzdC5jb20vVVROLVVTRVJGaXJzdC1DbGll
+bnRBdXRoZW50aWNhdGlvbmFuZEVtYWlsLmNybDB0BggrBgEFBQcBAQRoMGYwPQYIKwYBBQUH
+MAKGMWh0dHA6Ly9jcnQudXNlcnRydXN0LmNvbS9VVE5BZGRUcnVzdENsaWVudF9DQS5jcnQw
+JQYIKwYBBQUHMAGGGWh0dHA6Ly9vY3NwLnVzZXJ0cnVzdC5jb20wDQYJKoZIhvcNAQEFBQAD
+ggEBAIXWvnhXVW0zf0RS/kLVBqgBA4CK+w2y/Uq/9q9BSfUbWsXSrRtzbj7pJnzmTJjBMCjf
+y/tCPKElPgp11tA9OYZm0aGbtU2bb68obB2v5ep0WqjascDxdXovnrqTecr+4pEeVnSy+I3T
+4ENyG+2P/WA5IEf7i686ZUg8mD2lJb+972DgSeUWyOs/Q4Pw4O4NwdPNM1+b0L1garM7/vrU
+yTo8H+2b/5tJM75CKTmD7jNpLoKdRU2oadqAGx490hpdfEeZpZsIbRKZhtZdVwcbpzC+S0lE
+uJB+ytF5OOu0M/qgOl0mWJ5hVRi0IdWZ1eBDQEIwvuql55TSsP7zdfl/bucwggY6MIIFIqAD
+AgECAhEA7VVePxe9NwQJja60uRdefzANBgkqhkiG9w0BAQUFADCBkzELMAkGA1UEBhMCR0Ix
+GzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgGA1UE
+ChMRQ09NT0RPIENBIExpbWl0ZWQxOTA3BgNVBAMTMENPTU9ETyBDbGllbnQgQXV0aGVudGlj
+YXRpb24gYW5kIFNlY3VyZSBFbWFpbCBDQTAeFw0xMTEyMDIwMDAwMDBaFw0xNDEyMDEyMzU5
+NTlaMIIBUTELMAkGA1UEBhMCUFQxETAPBgNVBBETCDQyMDAtNDY1MREwDwYDVQQIEwhQb3J0
+dWdhbDEOMAwGA1UEBxMFUG9ydG8xHjAcBgNVBAkTFVJ1YSBEci4gUm9iZXJ0byBGcmlhczE5
+MDcGA1UEChMwRmFjdWxkYWRlIGRlIEVuZ2VuaGFyaWEgZGEgVW5pdmVyc2lkYWRlIGRvIFBv
+cnRvMQ0wCwYDVQQLEwRDSUNBMUkwRwYDVQQLE0BJc3N1ZWQgdGhyb3VnaCBGYWN1bGRhZGUg
+ZGUgRW5nZW5oYXJpYSBkYSBVbml2ZXJzaWRhZGUgZG8gUG9ydG8gMR8wHQYDVQQLExZDb3Jw
+b3JhdGUgU2VjdXJlIEVtYWlsMRkwFwYDVQQDExBFdWdlbmlvIE9saXZlaXJhMRswGQYJKoZI
+hvcNAQkBFgxlY29AZmUudXAucHQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCZ
+mSuug7G35cL0FczmZDLmKkXYgSZl72IFW9lSoxtJujZE3uCld+SM2rag8SOPvH+OdvCNOIZY
+whE1MlXOxVRqJ5OSHcDt3fkILoVsotQ8RTS/CixI/ypmNeh6nw0l9AXpVSNVmojvis9YEuuf
+YJ4GNcrfDx9e4FeCb/i6Y6eAlCgCP6KxW+nLMbf6CTEjG53avqQkmQKPUxrUC1eeH736imqz
+1lhsgHC53CHHb7G8OZLhJGv2tRUh2bcHBGopjvgQ6wqqeiQ5kRMrCDtI6yV/OGBvOSGN4gTB
+Lft0JUFnznU5KX4yhbJnQeqTGOP2IGm/zAbhHKDbmVjBRKFhfN3XAgMBAAGjggHGMIIBwjAf
+BgNVHSMEGDAWgBR6E04AdFvGeGNkJ8Ev4qBbvHnFezAdBgNVHQ4EFgQUVL8LIsiU/ekKl4/2
+83k9kPjsQT4wDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYB
+BQUHAwQGCCsGAQUFBwMCMEYGA1UdIAQ/MD0wOwYMKwYBBAGyMQECAQMFMCswKQYIKwYBBQUH
+AgEWHWh0dHBzOi8vc2VjdXJlLmNvbW9kby5uZXQvQ1BTMFcGA1UdHwRQME4wTKBKoEiGRmh0
+dHA6Ly9jcmwuY29tb2RvY2EuY29tL0NPTU9ET0NsaWVudEF1dGhlbnRpY2F0aW9uYW5kU2Vj
+dXJlRW1haWxDQS5jcmwwgYgGCCsGAQUFBwEBBHwwejBSBggrBgEFBQcwAoZGaHR0cDovL2Ny
+dC5jb21vZG9jYS5jb20vQ09NT0RPQ2xpZW50QXV0aGVudGljYXRpb25hbmRTZWN1cmVFbWFp
+bENBLmNydDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuY29tb2RvY2EuY29tMBcGA1UdEQQQ
+MA6BDGVjb0BmZS51cC5wdDANBgkqhkiG9w0BAQUFAAOCAQEAOxrdqtvhEc30t/jZRUpjrGPl
+Lg5u3+rWCc50d/rRRhMvjg6H+SDrk1VxAcKspS6ZSCuMkTeSVlOFkfc4n4uUBdNbA+rGd+47
+336SzrSJf5zzRDwQEHzQ4R7PBj8P29HGvgT9DGMHNQGQkWNBjrqCP+UQ+ImmuB09NQlV2F4K
+0rK8huQ4hVdVXugMHMBrvI0ouaNEvcoUWyudMGF0sB4KzXYOhiiFuGAfKXIJegFX8a0AahB1
+40KLVqn5nT+Pj7yP7JmP3Js2F50IO/aIYTTj4WF+bYxF8B3KCzueX7SWa24WUjzqEskS5g4o
+kcC6WfkrEjvZMF6Q15lX2UrYbgVlIjGCBA8wggQLAgEBMIGpMIGTMQswCQYDVQQGEwJHQjEb
+MBkGA1UECBMSR3JlYXRlciBNYW5jaGVzdGVyMRAwDgYDVQQHEwdTYWxmb3JkMRowGAYDVQQK
+ExFDT01PRE8gQ0EgTGltaXRlZDE5MDcGA1UEAxMwQ09NT0RPIENsaWVudCBBdXRoZW50aWNh
+dGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBAhEA7VVePxe9NwQJja60uRdefzAJBgUrDgMCGgUA
+oIICOjAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0xMjA0MDIx
+MTA5MzVaMCMGCSqGSIb3DQEJBDEWBBS9IbTdKqyuOHUhTlelcKb3yD8GLDBfBgkqhkiG9w0B
+CQ8xUjBQMAsGCWCGSAFlAwQBAjAKBggqhkiG9w0DBzAOBggqhkiG9w0DAgICAIAwDQYIKoZI
+hvcNAwICAUAwBwYFKw4DAgcwDQYIKoZIhvcNAwICASgwgboGCSsGAQQBgjcQBDGBrDCBqTCB
+kzELMAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMH
+U2FsZm9yZDEaMBgGA1UEChMRQ09NT0RPIENBIExpbWl0ZWQxOTA3BgNVBAMTMENPTU9ETyBD
+bGllbnQgQXV0aGVudGljYXRpb24gYW5kIFNlY3VyZSBFbWFpbCBDQQIRAO1VXj8XvTcECY2u
+tLkXXn8wgbwGCyqGSIb3DQEJEAILMYGsoIGpMIGTMQswCQYDVQQGEwJHQjEbMBkGA1UECBMS
+R3JlYXRlciBNYW5jaGVzdGVyMRAwDgYDVQQHEwdTYWxmb3JkMRowGAYDVQQKExFDT01PRE8g
+Q0EgTGltaXRlZDE5MDcGA1UEAxMwQ09NT0RPIENsaWVudCBBdXRoZW50aWNhdGlvbiBhbmQg
+U2VjdXJlIEVtYWlsIENBAhEA7VVePxe9NwQJja60uRdefzANBgkqhkiG9w0BAQEFAASCAQBW
+hmzaryJfmfYEN6lqVQIvP+qGnm9HlXBKkdDJ+RU8T68RRAtxK6dfgVYX0OR9Hs3gsHQSuSSN
+JTD0+fjU4KwLi+zt8PXtGOXF4V4DqgVO4tR7tzzA9uFF3zu83AE6sjH1pUiOMyy8Uiq2koVD
+DD5gp05Ac967cOhtXSIzX7421jf62ykIgtv/t+9BAdHOWr7j0vFci+/Qdx4YyhNpWEDacb/L
+tBSIpmUKpBZdVu5XTDvjhtnMiLHb4WI168rv6aQr8uGG3Lq2WwR0ok2rD0Pzfi9jiyNvfrHL
+wxo3+mK11SZdGJ/r/2CXzxxf9vgoxiRSlAgN4yYyzA6n4VZ0eauLAAAAAAAA
+--------------ms040104060000030502080004--

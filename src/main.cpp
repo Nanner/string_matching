@@ -9,12 +9,9 @@
 #include "main.h"
 
 int main(){
-    char X[] = "XMJYAUZ";
-    char Y[] = "MZJAWXU";
-    std::vector<char> result;
+    string toSearch="intelligent";
     
-    LCS::findOne(X, strlen(X), Y, strlen(Y), result);
-    std::string resultString(&result.front(), result.size());
-    cout << resultString << endl;
+	string filename="1.txt";
+    cout << longestCommonSubsequence(filename, toSearch) << endl;
     return 0;
 }
