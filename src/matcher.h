@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <stdio.h>
 
 #include "lcs.h"
 
@@ -21,6 +22,7 @@ using namespace std;
 int numStringMatching(string filename, string toSearch);
 float numApproximateStringMatching(string filename, string toSearch);
 string longestCommonSubsequence(string filename, string toSearch);
+int approximateStringMatches(string filename, string toSearch);
 
 vector<int> KMP(string S, string K);
 

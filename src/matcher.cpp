@@ -39,6 +39,26 @@ float numApproximateStringMatching(string filename, string toSearch){
     return (float)total/words;
 }
 
+int approximateStringMatches(string filename, string toSearch){
+    ifstream file;
+    file.open(filename.c_str());
+    string word;
+    int min = INT32_MAX;
+    int distance;
+    while (file.good()) {
+        file >> word;
+        distance = levenshtein_distance(word, toSearch);
+        if (distance <= 10 ){
+            cout << distance << " - " << word << endl;
+        }
+        if (distance < min)
+            min = distance;
+        
+    }
+    file.close();
+    return min;
+}
+
 string longestCommonSubsequence(string filename, string toSearch){
     ifstream file;
     file.open(filename.c_str());
@@ -50,25 +70,43 @@ string longestCommonSubsequence(string filename, string toSearch){
     string contents;
     string line;
     string results;
+    int lineCounter = 1;
     
     while (file.good()) {
         getline(file, line);
-        contents += line;
+        contents = line;
+        
+        char * X = new char [toSearch.length()+1];
+        strcpy(X, toSearch.c_str());
+        
+        char * Y = new char [contents.length()+1];
+        strcpy (Y, contents.c_str());
+        vector<char> result;
+        
+        LCS::findOne(X, strlen(X), Y, strlen(Y), result);
+        string resultString(&result.front(), result.size());
+        if (resultString.size() == 0) continue;
+        char buffer[50];
+        sprintf(buffer, "line %d - %s\n", lineCounter, resultString.c_str());
+        lineCounter++;
+        results += buffer;
 
     }
     file.close();
     
+    /*
     char * X = new char [toSearch.length()+1];
     strcpy(X, toSearch.c_str());
     
     char * Y = new char [contents.length()+1];
     strcpy (Y, contents.c_str());
     vector<char> result;
+     */
     
-    LCS::findOne(X, strlen(X), Y, strlen(Y), result);
-    string resultString(&result.front(), result.size());
-    return resultString;
-
+    //LCS::findOne(X, strlen(X), Y, strlen(Y), result);
+    //string resultString(&result.front(), result.size());
+    //return resultString;
+    return results;
 }
 
 
