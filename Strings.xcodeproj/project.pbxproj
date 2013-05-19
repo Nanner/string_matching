@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EBA3DCED1748D70400880959 /* stringAlgorithms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA3DCEB1748D70400880959 /* stringAlgorithms.cpp */; };
+		EBE8AF9B1748BABF00C37D8E /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBE8AF991748BABF00C37D8E /* parser.cpp */; };
 		EBFE07681747911F005E5C25 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBFE07661747911F005E5C25 /* main.cpp */; };
 		EBFE076B174791BA005E5C25 /* matcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBFE0769174791BA005E5C25 /* matcher.cpp */; };
 		EBFE076E174791EF005E5C25 /* lcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBFE076C174791EF005E5C25 /* lcs.cpp */; };
@@ -45,6 +47,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EBA3DCEB1748D70400880959 /* stringAlgorithms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringAlgorithms.cpp; sourceTree = "<group>"; };
+		EBA3DCEC1748D70400880959 /* stringAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringAlgorithms.h; sourceTree = "<group>"; };
+		EBE8AF991748BABF00C37D8E /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
+		EBE8AF9A1748BABF00C37D8E /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
 		EBFE0759174790E2005E5C25 /* Strings */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Strings; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE07661747911F005E5C25 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		EBFE07671747911F005E5C25 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
@@ -101,6 +107,10 @@
 				EBFE076A174791BA005E5C25 /* matcher.h */,
 				EBFE076C174791EF005E5C25 /* lcs.cpp */,
 				EBFE076D174791EF005E5C25 /* lcs.h */,
+				EBE8AF991748BABF00C37D8E /* parser.cpp */,
+				EBE8AF9A1748BABF00C37D8E /* parser.h */,
+				EBA3DCEB1748D70400880959 /* stringAlgorithms.cpp */,
+				EBA3DCEC1748D70400880959 /* stringAlgorithms.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -176,6 +186,8 @@
 				EBFE07681747911F005E5C25 /* main.cpp in Sources */,
 				EBFE076B174791BA005E5C25 /* matcher.cpp in Sources */,
 				EBFE076E174791EF005E5C25 /* lcs.cpp in Sources */,
+				EBE8AF9B1748BABF00C37D8E /* parser.cpp in Sources */,
+				EBA3DCED1748D70400880959 /* stringAlgorithms.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

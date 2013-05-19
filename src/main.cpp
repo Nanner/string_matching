@@ -9,10 +9,10 @@
 #include "main.h"
 
 int main(){
-    string toSearch="traffic systems";
+    string toSearch="intelligent vehicles";
     
 	string filename="1.txt";
-    cout << longestCommonSubsequence(filename, toSearch) << endl;
-    //cout << approximateStringMatches(filename, toSearch);
+    cout << Matcher::longestCommonSubsequence(filename, toSearch) << endl;
+    Matcher::approximateStringMatches(filename, toSearch);
     return 0;
 }
