@@ -15,6 +15,7 @@
 
 #include "lcs.h"
 #include "matcher.h"
+#include "interface.h"
 
 using namespace std;
 

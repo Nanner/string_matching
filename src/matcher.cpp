@@ -33,7 +33,7 @@ int Matcher::approximateStringMatches(string filename, string toSearch){
     string searchWord;
     vector<string> searchWords;
     string word;
-    int min = INT32_MAX;
+    int min = INT_MAX;
     int distance;
     
     while ( searches.good() ) {

@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <limits.h>
 
 #include "lcs.h"
 #include "parser.h"
