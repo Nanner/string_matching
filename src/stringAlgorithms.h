@@ -21,6 +21,7 @@ class StringAlgorithms {
 public:
     static vector<int> KMP(string S, string K);
     
+    // this is the Wagner-Fischer algorithm
     template<class T>
     static unsigned int levenshtein_distance(const T &s1, const T & s2)
     {

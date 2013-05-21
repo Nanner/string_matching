@@ -9,7 +9,7 @@
 #include "main.h"
 
 int main(){
-    string toSearch="intelligent vehicles";
+    string toSearch="traffic systems";
     
 	string filename="1.txt";
     cout << Matcher::longestCommonSubsequence(filename, toSearch) << endl;

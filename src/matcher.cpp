@@ -57,6 +57,16 @@ int Matcher::approximateStringMatches(string filename, string toSearch){
 
 string Matcher::longestCommonSubsequence(string filename, string toSearch){
     stringstream contents ( Parser::parseEmail(filename) );
+    stringstream searches ( toSearch );
+    string searchWord;
+    vector<string> searchWords;
+    
+    // get all search words included in the toSearch string
+    while (searches.good()) {
+        searches >> searchWord;
+        searchWords.push_back(searchWord);
+    }
+    
     string line;
     stringstream results;
     int lineCounter = 1;
@@ -72,6 +82,8 @@ string Matcher::longestCommonSubsequence(string filename, string toSearch){
         strcpy (Y, line.c_str());
         
         vector<char> result;
+        
+        // run a LCS for each line
         LCS::findOne(X, strlen(X), Y, strlen(Y), result);
         string resultString(&result.front(), result.size());
         
@@ -79,9 +91,16 @@ string Matcher::longestCommonSubsequence(string filename, string toSearch){
         
         if (resultString.size() == 0) continue;
         
+        // check if the resulting common string has any of the keywords
+        int matches = 0;
+        for (int i = 0; i < searchWords.size(); i++) {
+            matches += StringAlgorithms::KMP(resultString, searchWords.at(i)).size();
+        }
+        
+        if (matches == 0) continue;
+        
         stringstream buffer;
         results << "line " << lineCounter << " " << resultString << endl;
-        string bla = buffer.str();
     }
     
     return results.str();

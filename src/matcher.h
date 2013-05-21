@@ -30,4 +30,19 @@ public:
 
 };
 
+class Result {
+private:
+    string query;
+    int exactMatches;
+    int partialMatches;
+    vector<int> lines;
+public:
+    Result(string word);
+    string getQuery() const;
+    int getExactMatches() const;
+    int getPartialMatches() const;
+    
+    
+};
+
 #endif
