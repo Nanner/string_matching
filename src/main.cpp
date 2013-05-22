@@ -15,7 +15,7 @@ int main(){
     Email email = Parser::parseEmailToObject(filename);
     Matcher::findMatches(email, interest);
     
-    vector<Match> matches = email.getResults().at(0).getMatches();
+    vector<Match> matches ( email.getResults().at(0).getMatches() );
 
     for (int i = 0; i < matches.size(); i++) {
         cout << matches.at(i).getFoundString() << " " << matches.at(i).getDistance() << endl;

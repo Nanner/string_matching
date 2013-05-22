@@ -41,5 +41,5 @@ void Result::addMatch(Match newMatch){
 }
 
 vector<Match> Result::getMatches(){
-    
+    return matches;
 }

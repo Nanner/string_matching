@@ -47,8 +47,7 @@ vector<Match> Matcher::approximateStringMatches(const string& contents, const st
             keyword = keywordsVector.at(i);
             distance = StringAlgorithms::levenshtein_distance(word, keyword);
             if (distance <= ceil(keyword.size() / 3) ){
-                Match foundMatch(word, 0, distance);
-                matches.push_back(foundMatch);
+                matches.push_back(Match(word, 0, distance));
             }
             
         }
@@ -110,8 +109,4 @@ void Matcher::findMatches(Email &email, const string& keywords){
         result.addMatch(matches.at(i));
     }
     email.addResult(result);
-}
-
-void Matcher::findMatches(Email& email, const string keywords) {
-
 }
