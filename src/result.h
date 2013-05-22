@@ -4,22 +4,23 @@
 #include <string>
 #include <vector>
 
-using namespace std;
+#include "match.h"
 
-#define EXACT_MATCH_WEIGHT 10
-#define PARTIAL_MATCH_WEIGHT 2
+using namespace std;
 
 class Result {
 private:
     string query;
-    int exactMatches;
-    int partialMatches;
+    vector<Match> matches;
+
 public:
     Result(string query);
     string getQuery() const;
     int getExactMatches() const;
     int getPartialMatches() const;
     int getMatchScore() const;
+    void addMatch(Match newMatch);
+    vector<Match> getMatches();
 };
 
 #endif

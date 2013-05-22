@@ -8,100 +8,108 @@
 
 #include "matcher.h"
 
-int Matcher::numStringMatching(string filename, string toSearch){
-
-    string contents = Parser::parseEmail(filename);
-    vector<int> results = StringAlgorithms::KMP(contents, toSearch);
-    return (int)results.size();
+int Matcher::getExactMatches(const string& contents, const string& keywords){
+    vector<int> matches = StringAlgorithms::KMP(contents, keywords);
+    return (int)matches.size();
 }
 
-float Matcher::avgStringMatching(string filename, string toSearch){
-    stringstream contents ( Parser::parseEmail(filename) );
+float avgStringMatching(const string& contents, const string& keyword){
+    stringstream contentStream ( contents );
     string word;
     int words = 0; int total = 0;
-    while (contents.good()) {
-        contents >> word;
-        total += StringAlgorithms::levenshtein_distance(word, toSearch);
+    while (contentStream.good()) {
+        contentStream >> word;
+        total += StringAlgorithms::levenshtein_distance(word, keyword);
         words++;
     }
     return (float)total/words;
 }
 
-int Matcher::approximateStringMatches(string filename, string toSearch){
-    stringstream contents ( Parser::parseEmail(filename) );
-    stringstream searches ( toSearch );
-    string searchWord;
-    vector<string> searchWords;
+vector<Match> Matcher::approximateStringMatches(const string& contents, const string& keywords){
+    stringstream contentStream ( contents );
+    stringstream keywordStream ( keywords );
+    string keyword;
+    vector<string> keywordsVector;
     string word;
-    int min = INT_MAX;
     int distance;
     
-    while ( searches.good() ) {
-        searches >> searchWord;
-        searchWords.push_back(searchWord);
+    vector<Match> matches;
+    
+    // parse all the keywords
+    while ( keywordStream.good() ) {
+        keywordStream >> keyword;
+        keywordsVector.push_back(keyword);
     }
     
-    while ( contents.good() ) {
-        contents >> word;
-        for (int i = 0; i < searchWords.size(); i++) {
-            distance = StringAlgorithms::levenshtein_distance(word, searchWords.at(i));
-            if (distance <= ceil(searchWords.at(i).size() / 3) ){
-                cout << distance << " - " << word << endl;
+    while ( contentStream.good() ) {
+        contentStream >> word;
+        for (int i = 0; i < keywordsVector.size(); i++) {
+            keyword = keywordsVector.at(i);
+            distance = StringAlgorithms::levenshtein_distance(word, keyword);
+            if (distance <= ceil(keyword.size() / 3) ){
+                Match foundMatch(word, 0, distance);
+                matches.push_back(foundMatch);
             }
-            if (distance < min)
-                min = distance;
+            
         }
     }
-    return min;
+    return matches;
 }
 
-string Matcher::longestCommonSubsequence(string filename, string toSearch){
-    stringstream contents ( Parser::parseEmail(filename) );
-    stringstream searches ( toSearch );
-    string searchWord;
-    vector<string> searchWords;
+vector<Match> Matcher::longestCommonSubsequence(const string& contents, const string& keywords){
+    stringstream contentStream ( contents );
+    stringstream keywordStream ( keywords );
+    string keyword;
+    vector<string> keywordsVector;
+    string word;
+    int distance;
     
-    // get all search words included in the toSearch string
-    while (searches.good()) {
-        searches >> searchWord;
-        searchWords.push_back(searchWord);
+    vector<Match> matches;
+    
+    // parse all the keywords
+    while ( keywordStream.good() ) {
+        keywordStream >> keyword;
+        keywordsVector.push_back(keyword);
     }
     
-    string line;
-    stringstream results;
-    int lineCounter = 1;
-    
-    while (contents.good()) {
-        getline(contents, line);
-        lineCounter++;
-        
-        char * X = new char [toSearch.length()+1];
-        strcpy(X, toSearch.c_str());
-        
-        char * Y = new char [line.length()+1];
-        strcpy (Y, line.c_str());
-        
-        vector<char> result;
-        
-        // run a LCS for each line
-        LCS::findOne(X, strlen(X), Y, strlen(Y), result);
-        string resultString(&result.front(), result.size());
-        
-        delete X; delete Y;
-        
-        if (resultString.size() == 0) continue;
-        
-        // check if the resulting common string has any of the keywords
-        int matches = 0;
-        for (int i = 0; i < searchWords.size(); i++) {
-            matches += StringAlgorithms::KMP(resultString, searchWords.at(i)).size();
+    while ( contentStream.good() ) {
+        contentStream >> word;
+        if (word == "\n")
+            printf("PUTAS!");
+        for (int i = 0; i < keywordsVector.size(); i++) {
+            
+            char * X = new char [keyword.length()+1];
+            strcpy(X, keyword.c_str());
+            
+            char * Y = new char [word.length()+1];
+            strcpy (Y, word.c_str());
+            
+            vector<char> result;
+            
+            // run a LCS for each line
+            LCS::findOne(X, strlen(X), Y, strlen(Y), result);
+            string resultString(&result.front(), result.size());
+            
+            delete X; delete Y;
+
+            distance = 0;
+            
+            if (distance <= ceil(keywordsVector.at(i).size() / 3) ){
+                matches.push_back(Match(word, 10, distance));
+            }
+            
         }
-        
-        if (matches == 0) continue;
-        
-        stringstream buffer;
-        results << "line " << lineCounter << " " << resultString << endl;
     }
-    
-    return results.str();
+    return matches;
+}
+
+void Matcher::findMatches(Email &email, const string& keywords){
+    // get a result for these keywords
+    Result result(keywords);
+    vector<Match> matches = approximateStringMatches(email.getContent(), keywords);
+    for (int i = 0; i < matches.size(); i++) {
+        // the result will contain all the matches for the keywords
+        result.addMatch(matches.at(i));
+    }
+    email.addResult(result);
 }

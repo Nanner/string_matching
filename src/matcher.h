@@ -17,6 +17,7 @@
 #include "lcs.h"
 #include "parser.h"
 #include "stringAlgorithms.h"
+#include "result.h"
 
 using namespace std;
 
@@ -24,12 +25,12 @@ class Matcher {
     
 public:
 
-    static int numStringMatching(string filename, string toSearch);
-    static float avgStringMatching(string filename, string toSearch);
-    static int approximateStringMatches(string filename, string toSearch);
-    static string longestCommonSubsequence(string filename, string toSearch);
+    static int getExactMatches(const string& contents, const string& keywords);
+    static float avgStringMatching(const string& contents, const string& keyword);
+    static vector<Match> approximateStringMatches(const string& contents, const string& keywords);
+    static vector<Match> longestCommonSubsequence(const string& contents, const string& keywords);
 
-    static void findMatches(Email &email, const string keywords);
+    static void findMatches(Email &email, const string& keywords);
 
 };
 

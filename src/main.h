@@ -16,6 +16,7 @@
 #include "lcs.h"
 #include "matcher.h"
 #include "interface.h"
+#include "email.h"
 
 using namespace std;
 

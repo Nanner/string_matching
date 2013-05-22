@@ -26,6 +26,5 @@ string Parser::parseEmail(string filename){
 //TODO exception
 Email Parser::parseEmailToObject(string filename) {
 	string content = parseEmail(filename);
-	Email email(filename, content);
-	return email;
+	return Email(filename, content);
 }

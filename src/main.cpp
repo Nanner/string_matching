@@ -9,12 +9,17 @@
 #include "main.h"
 
 int main(){
-    /*string toSearch="traffic systems";
+    string interest = "traffic systems";
     
-	string filename="1.txt";
-    cout << Matcher::longestCommonSubsequence(filename, toSearch) << endl;
-    Matcher::approximateStringMatches(filename, toSearch);*/
+	string filename = "1.txt";
+    Email email = Parser::parseEmailToObject(filename);
+    Matcher::findMatches(email, interest);
+    
+    vector<Match> matches = email.getResults().at(0).getMatches();
 
+    for (int i = 0; i < matches.size(); i++) {
+        cout << matches.at(i).getFoundString() << " " << matches.at(i).getDistance() << endl;
+    }
 	mainMenu();
     return 0;
 }

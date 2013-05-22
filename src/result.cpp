@@ -9,13 +9,37 @@ string Result::getQuery() const {
 }
 
 int Result::getExactMatches() const {
-	return exactMatches;
+    int exactMatches = 0;
+	for (int i = 0; i < matches.size(); i++) {
+        if ( matches.at(i).isExact() ) {
+            exactMatches++;
+        }
+    }
+    return exactMatches;
 }
 
 int Result::getPartialMatches() const {
-	return partialMatches;
+    int partialMatches = 0;
+	for (int i = 0; i < matches.size(); i++) {
+        if ( matches.at(i).isPartial() ) {
+            partialMatches++;
+        }
+    }
+    return partialMatches;
 }
 
 int Result::getMatchScore() const {
-	return (exactMatches * EXACT_MATCH_WEIGHT + partialMatches * PARTIAL_MATCH_WEIGHT);
+    int totalScore = 0;
+    for (int i = 0; i < matches.size(); i++) {
+        totalScore += matches.at(i).getScore();
+    }
+    return totalScore;
+}
+
+void Result::addMatch(Match newMatch){
+    matches.push_back(newMatch);
+}
+
+vector<Match> Result::getMatches(){
+    
 }
