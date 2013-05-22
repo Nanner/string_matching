@@ -21,6 +21,7 @@
 using namespace std;
 
 #define PROMPT "> "
+#define MAIL_FILE ".txt"
 
 /*
  *
@@ -72,6 +73,8 @@ bool loginMenu();
 void emailMenu();
 
 void searchMenu();
+
+void batchLoad(int firstEmailNumber, int lastEmailNumber);
 
 #endif
 

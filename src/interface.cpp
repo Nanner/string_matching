@@ -285,6 +285,10 @@ void emailMenu() {
 		case 2:
 			break;
 		case 3:
+            // TODO get first and last number here
+            // TODO warning that mails must be formatted "1.txt", "2.txt"
+            batchLoad(1, 10);
+            cout << "lock and loaded" << endl;
 			break;
 		default:
 			cout << "Invalid option!\n";
@@ -314,4 +318,12 @@ int getOption(int maxOption) {
 	} while(true);
 
 	return option;
+}
+
+void batchLoad(int firstEmailNumber, int lastEmailNumber){
+    for (int i = firstEmailNumber; i < lastEmailNumber+1; i++) {
+        stringstream filename;
+        filename << i << MAIL_FILE;
+        emails.push_back(Parser::parseEmailToObject(filename.str()));
+    }
 }
