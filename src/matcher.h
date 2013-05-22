@@ -29,7 +29,7 @@ public:
     static int approximateStringMatches(string filename, string toSearch);
     static string longestCommonSubsequence(string filename, string toSearch);
 
-    static void findMatches(Email &email, const string keywords);
+    static void findMatches(Email& email, const string keywords);
 
 };
 

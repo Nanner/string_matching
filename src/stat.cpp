@@ -1,6 +1,6 @@
 #include "stat.h"
 
-Stat::Stat(vector<Email> emails) {
+Stat::Stat(vector<Email> &emails) {
 
 	if(emails.empty()) {
 		statsCalculated = false;

@@ -105,3 +105,7 @@ string Matcher::longestCommonSubsequence(string filename, string toSearch){
     
     return results.str();
 }
+
+void Matcher::findMatches(Email& email, const string keywords) {
+
+}

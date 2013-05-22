@@ -257,7 +257,41 @@ bool loginMenu() {
 }
 
 void emailMenu() {
+	bool continueMenu = true;
+	int numberOfOptions = 4;
 
+	while(continueMenu) {
+
+		cout << endl << "Email menu" << endl;
+
+		cout << endl << "0- Back\n1- Load single email\n2- Remove email\n"
+				"3- Batch load emails\n";
+
+		int option = getOption(numberOfOptions);
+
+		switch(option) {
+		case 0:
+			return;
+			break;
+		case 1:
+			//TODO add exception for email not found
+		{
+			cout << "Email filename?" << endl << "> ";
+			string filename;
+			getline(cin, filename);
+			emails.push_back(Parser::parseEmailToObject(filename));
+		}
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		default:
+			cout << "Invalid option!\n";
+			break;
+		}
+
+	}
 }
 
 void searchMenu() {
