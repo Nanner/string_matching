@@ -18,7 +18,7 @@ int main(){
     vector<Match> matches ( email.getResults().at(0).getMatches() );
 
     for (int i = 0; i < matches.size(); i++) {
-        cout << "lol" << matches.at(i).getFoundString() << " " << matches.at(i).getDistance() << endl;
+        cout << matches.at(i).getFoundString() << " " << matches.at(i).getDistance() << " " << matches.at(i).getLine() << endl;
     }
 	mainMenu();
     return 0;

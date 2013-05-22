@@ -28,6 +28,7 @@ public:
     bool isExact() const;
     bool isPartial() const;
     string getFoundString();
+    int getLine() const;
 
 };
 
