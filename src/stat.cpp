@@ -7,6 +7,7 @@ Stat::Stat(vector<Email> emails) {
 	comparator = findComparator(emails);
 
 
+
 }
 
 vector<Email> Stat::getEmails() const {
