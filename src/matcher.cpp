@@ -74,8 +74,6 @@ vector<Match> Matcher::longestCommonSubsequence(const string& contents, const st
     
     while ( contentStream.good() ) {
         contentStream >> word;
-        if (word == "\n")
-            printf("PUTAS!");
         for (int i = 0; i < keywordsVector.size(); i++) {
             
             char * X = new char [keyword.length()+1];
