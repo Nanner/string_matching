@@ -14,15 +14,18 @@
 #include <algorithm>
 #include <sstream>
 
+#include "email.h"
+
 using namespace std;
+
+class Email;
 
 class Parser {
     
     
 public:
-    Parser();
-    
     static string parseEmail(string filename);
+    static Email parseEmailToObject(string filename);
 };
 
 #endif 

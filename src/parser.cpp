@@ -22,3 +22,10 @@ string Parser::parseEmail(string filename){
     file.close();
     return contents;
 }
+
+//TODO exception
+Email Parser::parseEmailToObject(string filename) {
+	string content = parseEmail(filename);
+	Email email(filename, content);
+	return email;
+}

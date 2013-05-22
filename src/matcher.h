@@ -23,38 +23,12 @@ using namespace std;
 class Matcher {
     
 public:
+
     static int numStringMatching(string filename, string toSearch);
     static float avgStringMatching(string filename, string toSearch);
     static int approximateStringMatches(string filename, string toSearch);
     static string longestCommonSubsequence(string filename, string toSearch);
 
-
-};
-
-class Result {
-private:
-    string query;
-    int exactMatches;
-    int partialMatches;
-    vector<int> lines;
-public:
-    Result(string word);
-    string getQuery() const;
-    int getExactMatches() const;
-    int getPartialMatches() const;
-};
-
-class Email {
-private:
-	string fileName;
-	string content;
-	vector<Result> results;
-
-public:
-	Email(string fileName, string content);
-	string getFileName();
-	string getContent();
-	vector<Result> getResults();
 };
 
 #endif
