@@ -111,3 +111,7 @@ void Matcher::findMatches(Email &email, const string& keywords){
     }
     email.addResult(result);
 }
+
+void Matcher::findMatches(Email& email, const string keywords) {
+
+}

@@ -14,6 +14,8 @@
 #include <stdio.h>
 
 #include "user.h"
+#include "email.h"
+#include "parser.h"
 #include "displayWithPages.h"
 
 using namespace std;
@@ -47,6 +49,7 @@ using namespace std;
 
 static User loggedInUser;
 static vector<User*> users;
+static vector<Email> emails;
 
 int getOption(int maxOption);
 
