@@ -42,8 +42,19 @@ public:
     string getQuery() const;
     int getExactMatches() const;
     int getPartialMatches() const;
-    
-    
+};
+
+class Email {
+private:
+	string fileName;
+	string content;
+	vector<Result> results;
+
+public:
+	Email(string fileName, string content);
+	string getFileName();
+	string getContent();
+	vector<Result> getResults();
 };
 
 #endif

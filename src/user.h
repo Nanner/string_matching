@@ -19,7 +19,8 @@ public:
 	User(string name, vector<string> interests);
 
 	string getName();
-	vector<string>* getInterests();
+	void setName(string name);
+	vector<string> getInterests();
 	void setInterests(vector<string> interests);
 	void addInterest(string interest);
 	bool removeInterest(string interest);

@@ -45,15 +45,18 @@ using namespace std;
  *
  */
 
+static User loggedInUser;
+static vector<User*> users;
+
 int getOption(int maxOption);
 
 void mainMenu();
 
-void userMenu(vector<User*> &users);
+void userMenu();
 
 void editUserMenu(User* user);
 
-void editInterestsMenu();
+void editInterestsMenu(User* user);
 
 void addUserMenu();
 

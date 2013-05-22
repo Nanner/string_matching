@@ -8,8 +8,12 @@ string User::getName() {
 	return name;
 }
 
-vector<string>* User::getInterests() {
-	return &interests;
+void User::setName(string name) {
+	this->name = name;
+}
+
+vector<string> User::getInterests() {
+	return interests;
 }
 
 void User::setInterests(vector<string> interests) {
@@ -35,13 +39,12 @@ bool User::removeInterest(string interest) {
 
 }
 
-ostream& operator <<(ostream& out, User& u) {
-        out << u.getName() << endl;
-        vector<string> interests = *u.getInterests();
-        if(!interests.empty()) {
+ostream & operator << (ostream &out, User &u) {
+        out << u.name << endl;
+        if(!u.interests.empty()) {
         	out << "Interests:" << endl;
-        	for(unsigned int i = 0; i < u.getInterests()->size(); i++) {
-        		cout << interests[i] << endl;
+        	for(unsigned int i = 0; i < u.interests.size(); i++) {
+        		cout << u.interests[i] << endl;
         	}
         }
 
