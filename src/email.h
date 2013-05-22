@@ -14,7 +14,6 @@ private:
 	string fileName;
 	string content;
 	vector<Result> results;
-	int relativeScore;
 
 public:
 	Email();
@@ -25,9 +24,7 @@ public:
 	vector<Result> getResults() const;
 	void addResult(Result result);
 	int getNumberOfResults() const;
-	int getTotalEmailScore() const;;
-	int getRelativeScore() const;
-	void setRelativeScore(int relativeScore);
+	int getTotalEmailScore() const;
 	bool operator <(const Email &other) const;
 };
 

@@ -14,12 +14,12 @@ void mainMenu() {
 			cout << "Logged in as: " << loggedInUser.getName() << endl;
 
 		cout << endl << "0- Exit\n1- User menu\n2- User login\n3- Load emails\n";
-		if(userChosen) {
+		if(userChosen && !emails.empty()) {
 			cout << "4- Start search" << endl;
 			numberOfOptions = 4;
 		}
 		else {
-			cout << "Don't forget you need to login in order to search for emails!" << endl;
+			cout << "Don't forget you need to login in and have some emails in order to start search!" << endl;
 			numberOfOptions = 3;
 		}
 
@@ -92,9 +92,9 @@ void userMenu() {
 		case 4:
 			loadUsersMenu();
 			break;
-        case 5:
-            saveUsersMenu();
-            break;
+		case 5:
+			saveUsersMenu();
+			break;
 		default:
 			cout << "Invalid option!\n";
 			break;
@@ -240,11 +240,27 @@ void removeUserMenu() {
 }
 
 void loadUsersMenu() {
-    loadUsers(USER_FILE);
+	cout << "User filename?" << endl << PROMPT;
+	string filename;
+	getline(cin, filename);
+	if(loadUsers(filename)) {
+		cout << "Users loaded!" << endl;
+	}
+	else {
+		cout << "Problem loading users, does the file exist?" << endl;
+	}
 }
 
 void saveUsersMenu(){
-    saveUsers(USER_FILE);
+	cout << "User filename?" << endl << PROMPT;
+	string filename;
+	getline(cin, filename);
+	if(saveUsers(filename)) {
+		cout << "Users saved!" << endl;
+	}
+	else {
+		cout << "Problem saving users!" << endl;
+	}
 }
 
 bool loginMenu() {
@@ -258,9 +274,9 @@ bool loginMenu() {
 	else {
 		cout << "Logged in as: " << user->getName() << endl;
 		loggedInUser = *user;
+		emails.clear();
 		return true;
 	}
-
 }
 
 void emailMenu() {
@@ -287,26 +303,65 @@ void emailMenu() {
 			string filename;
 			getline(cin, filename);
 			emails.push_back(Parser::parseEmailToObject(filename));
+
+			cout << "Press enter to continue" << endl;
+			getchar();
 		}
-			break;
+		break;
 		case 2:
+			removeEmailMenu();
 			break;
 		case 3:
-            // TODO get first and last number here
-            // TODO warning that mails must be formatted "1.txt", "2.txt"
-            batchLoad(1, 10);
-            cout << "lock and loaded" << endl;
+		{
+			// TODO get first and last number here
+			// TODO warning that mails must be formatted "1.txt", "2.txt"
+			int a, b;
+			cout << "Email files must be formatted like '1.txt', '2.txt', etc." << endl;
+			cout << "Start loading from where? (insert a number)" << endl << PROMPT;
+			cin >> a;
+			cout << "To where? (insert a number)" << endl << PROMPT;
+			cin >> b;
+			batchLoad(a, b);
+			cout << "Finished batch load" << endl << "Press enter to continue" << endl;
+			getchar();
+		}
 			break;
 		default:
 			cout << "Invalid option!\n";
 			break;
 		}
-
 	}
+}
+
+void removeEmailMenu() {
+
+	string filename;
+	cout << "Filename of email to delete?" << endl;
+	getline(cin, filename);
+
+	vector<Email>::iterator it = emails.begin();
+
+	for(; it != emails.end(); it++) {
+		if(it->getFileName().compare(filename) == 0) {
+			it = emails.erase(it);
+			cout << "Removed email!" << endl << "Press enter to continue" << endl;
+			getchar();
+			return;
+		}
+	}
+
+	cout << "Email not found!" << endl << "Press enter to continue" << endl;
+	getchar();
 }
 
 void searchMenu() {
 
+	Stat emailsStat(emails);
+	emails = emailsStat.getEmails();
+
+	cout << "Most relevant: " << emails.at(0).getFileName() << "Score: " << emails.at(0).getTotalEmailScore() << endl;
+	for(int i = 0; i < 10; i++)
+		cout << emails.at(i).getNumberOfResults();
 }
 
 int getOption(int maxOption) {
@@ -328,60 +383,60 @@ int getOption(int maxOption) {
 }
 
 void batchLoad(int firstEmailNumber, int lastEmailNumber){
-    for (int i = firstEmailNumber; i < lastEmailNumber+1; i++) {
-        stringstream filename;
-        filename << i << MAIL_FILE;
-        emails.push_back(Parser::parseEmailToObject(filename.str()));
-    }
+	for (int i = firstEmailNumber; i < lastEmailNumber+1; i++) {
+		stringstream filename;
+		filename << i << MAIL_FILE;
+		emails.push_back(Parser::parseEmailToObject(filename.str()));
+	}
 }
 
 bool loadUsers(const string& filename){
-    ifstream file;
-    file.open(filename.c_str());
-    
-    if (!file.is_open())
-        return false;
-    
-    string line;
-    User * currentUser = NULL;
-    
-    while( getline( file, line ) )
-    {
-        istringstream iss(line);
-        string object;
-        if( getline(iss, object, EQUALS) )
-        {
-            if( object == USER )
-            {
-                string userName;
-                getline(iss, userName);
-                currentUser = new User(userName);
-                users.push_back(currentUser);
-            }
-            
-            if( object == INTEREST )
-            {
-                string interest;
-                getline(iss, interest);
-                currentUser->addInterest(interest);
-            }
-        }
-    }
-    return true;
+	ifstream file;
+	file.open(filename.c_str());
+
+	if (!file.is_open())
+		return false;
+
+	string line;
+	User * currentUser = NULL;
+
+	while( getline( file, line ) )
+	{
+		istringstream iss(line);
+		string object;
+		if( getline(iss, object, EQUALS) )
+		{
+			if( object == USER )
+			{
+				string userName;
+				getline(iss, userName);
+				currentUser = new User(userName);
+				users.push_back(currentUser);
+			}
+
+			if( object == INTEREST )
+			{
+				string interest;
+				getline(iss, interest);
+				currentUser->addInterest(interest);
+			}
+		}
+	}
+	return true;
 }
 
 bool saveUsers(const string& filename){
-    ofstream file;
-    file.open(filename.c_str(), fstream::trunc);
-    vector<User*>::iterator user;
-    vector<string>::iterator interest;
-    for (user = users.begin(); user != users.end(); ++user) {
-        file << USER << EQUALS << (*user)->getName() << endl;
-        vector<string> interests = (*user)->getInterests();
-        for (interest = interests.begin(); interest != interests.end(); ++interest) {
-            file << INTEREST << EQUALS << (*interest) << endl;
-        }
-    }
-    return true;
+	ofstream file;
+	file.open(filename.c_str(), fstream::trunc);
+	vector<User*>::iterator user;
+	vector<string>::iterator interest;
+	for (user = users.begin(); user != users.end(); ++user) {
+		file << USER << EQUALS << (*user)->getName() << endl;
+		vector<string> interests = (*user)->getInterests();
+		for (interest = interests.begin(); interest != interests.end(); ++interest) {
+			file << INTEREST << EQUALS << (*interest) << endl;
+		}
+	}
+	return true;
 }
 

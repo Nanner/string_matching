@@ -16,6 +16,7 @@
 #include "user.h"
 #include "email.h"
 #include "parser.h"
+#include "stat.h"
 #include "displayWithPages.h"
 
 using namespace std;
@@ -77,6 +78,8 @@ void saveUsersMenu();
 bool loginMenu();
 
 void emailMenu();
+
+void removeEmailMenu();
 
 void searchMenu();
 
