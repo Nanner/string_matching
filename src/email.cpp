@@ -58,3 +58,12 @@ int Email::getRelativeScore() const {
 void Email::setRelativeScore(int relativeScore) {
 	this->relativeScore = relativeScore;
 }
+
+bool Email::operator <(const Email& other) const {
+	if(getNumberOfResults() == other.getNumberOfResults()) {
+		return (getTotalEmailScore() < other.getTotalEmailScore());
+	}
+	else {
+		return (getNumberOfResults() < other.getNumberOfResults());
+	}
+}

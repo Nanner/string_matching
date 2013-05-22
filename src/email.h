@@ -28,6 +28,7 @@ public:
 	int getTotalEmailScore() const;;
 	int getRelativeScore() const;
 	void setRelativeScore(int relativeScore);
+	bool operator <(const Email &other) const;
 };
 
 
