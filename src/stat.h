@@ -2,26 +2,27 @@
 #define _stat_h
 
 #include <vector>
+#include <algorithm>
 
+#include "user.h"
 #include "email.h"
+#include "matcher.h"
 
 using namespace std;
 
 class Stat {
 private:
 	vector<Email> emails;
-	Email comparator;
-
+	User user;
+	bool statsCalculated;
 public:
 	Stat(vector<Email> emails);
 
 	vector<Email> getEmails() const;
-	Email getComparator() const;
 
 	void addEmail(Email email);
-	Email findComparator(vector<Email> emails);
-	void calculateScores();
-
+	void calculateMatches();
+	void sortEmailsByRelevance();
 };
 
 
