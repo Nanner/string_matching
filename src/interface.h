@@ -22,6 +22,10 @@ using namespace std;
 
 #define PROMPT "> "
 #define MAIL_FILE ".txt"
+#define EQUALS '='
+#define USER "USER"
+#define INTEREST "INTEREST"
+#define USER_FILE "users.txt"
 
 /*
  *
@@ -68,6 +72,8 @@ void removeUserMenu();
 
 void loadUsersMenu();
 
+void saveUsersMenu();
+
 bool loginMenu();
 
 void emailMenu();
@@ -75,6 +81,10 @@ void emailMenu();
 void searchMenu();
 
 void batchLoad(int firstEmailNumber, int lastEmailNumber);
+
+bool loadUsers(const string& filename);
+
+bool saveUsers(const string& filename);
 
 #endif
 
