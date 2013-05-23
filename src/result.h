@@ -6,6 +6,8 @@
 
 #include "match.h"
 
+#include <iostream>
+
 using namespace std;
 
 class Result {
@@ -21,6 +23,7 @@ public:
     int getMatchScore() const;
     void addMatch(Match newMatch);
     vector<Match> getMatches();
+    vector<vector<Match> > getSameLineMatches();
 };
 
 #endif

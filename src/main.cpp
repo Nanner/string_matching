@@ -9,6 +9,7 @@
 #include "main.h"
 
 int main(){
+    
     string interest = "traffic systems";
     
 	string filename = "1.txt";
@@ -20,6 +21,10 @@ int main(){
     for (int i = 0; i < matches.size(); i++) {
         cout << matches.at(i).getFoundString() << " " << matches.at(i).getDistance() << " " << matches.at(i).getLine() << endl;
     }
+    
+    Result result = email.getResults().at(0);
+    result.getSameLineMatches();
+     
 	mainMenu();
     return 0;
 }

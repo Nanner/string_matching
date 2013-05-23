@@ -17,6 +17,9 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <string>
+
+using namespace std;
 
 // See http://www-igm.univ-mlv.fr/~lecroq/seqcomp/node4.html.
 class LCS
@@ -91,13 +94,15 @@ class LCS
     
 public:
     template<typename T> static void
-    findOne(T* X, size_t m, T* Y, size_t n,
+    findCommonSequence(T* X, size_t m, T* Y, size_t n,
             std::vector<T>& result)
     {
         LCSTable table(m, n);
         table.build(X, Y);
         backtrackOne(table, X, Y, m, n, result);
     }
+    
+    static string findCommonSequence(const string& S, const string& T);
 };
 
 #endif

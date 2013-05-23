@@ -80,20 +80,8 @@ vector<Match> Matcher::longestCommonSubsequence(const string& contents, const st
                 
                 keyword = keywordsVector.at(i);
                 
-                char * S = new char [keyword.length()+1];
-                strcpy(S, keyword.c_str());
-                
-                char * T = new char [word.length()+1];
-                strcpy(T, word.c_str());
-                
-                vector<char> result;
-                
                 // run a LCS for each word found
-                LCS::findOne(T, strlen(T), S, strlen(S), result);
-                string resultString(&result.front(), result.size());
-                
-                delete S; delete T;
-                
+                string resultString = LCS::findCommonSequence(word, keyword);
                 /*
                  The minimum edit distance to transform S into T is achieved by doing
                  |S| - LCS(S,T) deletes and |T| - LCS(S,T) inserts.

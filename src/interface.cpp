@@ -368,11 +368,13 @@ void searchMenu() {
 
 	cout << "Emails, ordered by relevance to user interests:" << endl;
 
+    printf(DISPLAY_FORMAT, "Email filename", "Score", "Interest");
 	for(int i = 0; i < emails.size(); i++) {
 		Email email = emails.at(i);
-		cout << "Email filename: " << email.getFileName() << endl;
-		cout << "Tocal score: " << email.getTotalEmailScore() << endl;
-		cout << "Relative score: " << (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0) << "%" << endl;
+        float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0);
+        printf(DISPLAY_FORMAT_RESULT, email.getFileName().c_str(),
+                                      email.getTotalEmailScore(),
+                                      interestPercentage);
 	}
 }
 
