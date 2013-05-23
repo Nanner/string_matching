@@ -29,7 +29,7 @@ using namespace std;
 #define USER_FILE "users.txt"
 
 #define DISPLAY_FORMAT "%-14s | %-6s | %-13s\n"
-#define DISPLAY_FORMAT_RESULT "%-14s | %-6d | %%%-13.2f\n"
+#define DISPLAY_FORMAT_RESULT "%d- %-14s | %-6d | %%%-13.2f\n"
 
 /*
  *
@@ -59,6 +59,7 @@ using namespace std;
 static User loggedInUser;
 static vector<User*> users;
 static vector<Email> emails;
+static vector<Email> analyzedEmails;
 
 int getOption(int maxOption);
 
@@ -87,6 +88,10 @@ void emailMenu();
 void removeEmailMenu();
 
 void searchMenu();
+
+void displayResults();
+
+void displayEmailResults(Email email);
 
 void batchLoad(int firstEmailNumber, int lastEmailNumber);
 

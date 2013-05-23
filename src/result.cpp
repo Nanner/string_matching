@@ -72,3 +72,7 @@ vector<vector<Match> > Result::getSameLineMatches(){
     
     return allSameLineMatches;
 }
+
+void Result::printMatches() {
+	//vector<Match>
+}

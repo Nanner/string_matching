@@ -15,7 +15,7 @@ void mainMenu() {
 
 		cout << endl << "0- Exit\n1- User menu\n2- User login\n3- Load emails\n";
 		if(userChosen && !emails.empty()) {
-			cout << "4- Start search" << endl;
+			cout << "4- Search menu" << endl;
 			numberOfOptions = 4;
 		}
 		else {
@@ -363,25 +363,91 @@ void removeEmailMenu() {
 
 void searchMenu() {
 
-	Stat emailsStat(emails, loggedInUser);
-	emails = emailsStat.getEmails();
+	bool continueMenu = true;
+	int numberOfOptions = 4;
+
+	while(continueMenu) {
+
+		cout << endl << "Search menu" << endl;
+
+		cout << endl << "0- Back\n1- Run search\n2- Display results\n";
+
+		int option = getOption(numberOfOptions);
+
+		switch(option) {
+		case 0:
+			return;
+			break;
+		case 1:
+		{
+			Stat emailsStat(emails, loggedInUser);
+			analyzedEmails = emailsStat.getEmails();
+			displayResults();
+
+			cout << "Press enter to continue" << endl;
+			getchar();
+		}
+		break;
+		case 2:
+			if(analyzedEmails.empty()) {
+				cout << "You haven't run an analysis yet!" << endl;
+			}
+			else {
+				displayResults();
+			}
+
+			cout << "Press enter to continue" << endl;
+			getchar();
+			break;
+		default:
+			cout << "Invalid option!\n";
+			break;
+		}
+	}
+
+}
+
+void displayResults() {
+
+	bool gotResults = false;
 
 	int totalScore;
 
-	for(int i = 0; i < emails.size(); i++) {
-		totalScore += (emails.at(i).getTotalEmailScore());
+	for(unsigned int i = 0; i < analyzedEmails.size(); i++) {
+		totalScore += (analyzedEmails.at(i).getTotalEmailScore());
 	}
 
 	cout << "Emails, ordered by relevance to user interests:" << endl;
 
 	printf(DISPLAY_FORMAT, "Email filename", "Score", "Interest");
-	for(int i = 0; i < emails.size(); i++) {
-		Email email = emails.at(i);
-		float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0);
-		printf(DISPLAY_FORMAT_RESULT, email.getFileName().c_str(),
-				email.getTotalEmailScore(),
-				interestPercentage);
+	for(unsigned int i = 0; i < analyzedEmails.size(); i++) {
+		Email email = analyzedEmails.at(i);
+		if(!email.getResults().empty()) {
+			gotResults = true;
+			float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0);
+			printf(DISPLAY_FORMAT_RESULT, i+1, email.getFileName().c_str(),
+					email.getTotalEmailScore(),
+					interestPercentage);
+		}
 	}
+
+	if(!gotResults) {
+		cout << "No emails were found to be relevant to your interests." << endl;
+	}
+	else {
+		cout << "If you want to verify what lead to an email's result, press its corresponding index (0 to exit)" << endl;
+		int option = getOption(analyzedEmails.size() + 1);
+
+		if(option == 0) {
+			return;
+		}
+
+		displayEmailResults(analyzedEmails.at(option-1));
+	}
+}
+
+void displayEmailResults(Email email) {
+
 }
 
 void batchLoad(int firstEmailNumber, int lastEmailNumber){

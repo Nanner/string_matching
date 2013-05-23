@@ -24,6 +24,7 @@ public:
     void addMatch(Match newMatch);
     vector<Match> getMatches();
     vector<vector<Match> > getSameLineMatches();
+    void printMatches();
 };
 
 #endif
