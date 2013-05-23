@@ -36,3 +36,7 @@ bool Match::isPartial() const{
 string Match::getFoundString(){
     return found;
 }
+
+int Match::getLine() const{
+    return line;
+}
