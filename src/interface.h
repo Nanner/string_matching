@@ -62,6 +62,8 @@ static vector<Email> emails;
 
 int getOption(int maxOption);
 
+int getOption();
+
 void mainMenu();
 
 void userMenu();

@@ -28,4 +28,12 @@ public:
     static Email parseEmailToObject(string filename);
 };
 
+class FileNotFound {
+	string filename;
+
+public:
+	FileNotFound(string filename): filename(filename){}
+	string getName() {return filename;}
+};
+
 #endif 
