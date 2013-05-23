@@ -16,7 +16,7 @@ private:
 	User user;
 	bool statsCalculated;
 public:
-	Stat(vector<Email> &emails);
+	Stat(vector<Email> &emails, User user);
 
 	vector<Email> getEmails() const;
 

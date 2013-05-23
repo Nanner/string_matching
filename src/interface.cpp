@@ -165,6 +165,7 @@ void editInterestsMenu(User* user) {
 			string interest;
 			cout << "Please type in interest and press enter" << endl << "> ";
 			getline(cin, interest);
+			transform(interest.begin(), interest.end(), interest.begin(), ::tolower);
 			user->addInterest(interest);
 			cout << "Added interest, press enter to continue" << endl;
 			getchar();
@@ -356,12 +357,23 @@ void removeEmailMenu() {
 
 void searchMenu() {
 
-	Stat emailsStat(emails);
+	Stat emailsStat(emails, loggedInUser);
 	emails = emailsStat.getEmails();
 
-	cout << "Most relevant: " << emails.at(0).getFileName() << "Score: " << emails.at(0).getTotalEmailScore() << endl;
-	for(int i = 0; i < 10; i++)
-		cout << emails.at(i).getNumberOfResults();
+	int totalScore;
+
+	for(int i = 0; i < emails.size(); i++) {
+		totalScore += (emails.at(i).getTotalEmailScore());
+	}
+
+	cout << "Emails, ordered by relevance to user interests:" << endl;
+
+	for(int i = 0; i < emails.size(); i++) {
+		Email email = emails.at(i);
+		cout << "Email filename: " << email.getFileName() << endl;
+		cout << "Tocal score: " << email.getTotalEmailScore() << endl;
+		cout << "Relative score: " << (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0) << "%" << endl;
+	}
 }
 
 int getOption(int maxOption) {

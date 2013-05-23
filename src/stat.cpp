@@ -1,11 +1,12 @@
 #include "stat.h"
 
-Stat::Stat(vector<Email> &emails) {
+Stat::Stat(vector<Email> &emails, User user) {
 
-	if(emails.empty()) {
+	if(emails.empty() || user.getInterests().empty()) {
 		statsCalculated = false;
 	}
 	else {
+		this->user = user;
 		this->emails = emails;
 		calculateMatches();
 		sortEmailsByRelevance();
