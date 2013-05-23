@@ -58,7 +58,7 @@ void userMenu() {
 
 		cout << endl << "User menu" << endl;
 
-		cout << endl << "0- Exit\n1- Edit user\n2- Add user\n"
+		cout << endl << "0- Back\n1- Edit user\n2- Add user\n"
 				"3- Remove user\n4- Load users\n5- Save users\n";
 
 		int option = getOption(numberOfOptions);
@@ -112,7 +112,7 @@ void editUserMenu(User* user) {
 
 		cout << endl << "Edit user" << endl;
 
-		cout << endl << "0- Exit\n1- Edit name\n2- Edit topics of interest\n";
+		cout << endl << "0- Back\n1- Edit name\n2- Edit topics of interest\n";
 
 		int option = getOption(numberOfOptions);
 
@@ -152,7 +152,7 @@ void editInterestsMenu(User* user) {
 
 		cout << endl << "Edit interests" << endl;
 
-		cout << endl << "0- Exit\n1- Add interest\n2- Remove interest\n";
+		cout << endl << "0- Back\n1- Add interest\n2- Remove interest\n";
 
 		int option = getOption(numberOfOptions);
 
