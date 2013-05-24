@@ -422,7 +422,7 @@ void Interface::displayResults() {
 	printf(DISPLAY_FORMAT, "Index", "Email filename", "Score", "Interest %");
 	for(unsigned int i = 0; i < analyzedEmails.size(); i++) {
 		Email email = analyzedEmails.at(i);
-		if(!email.getResults().empty()) {
+		if(!email.getResults().empty() && email.getTotalEmailScore() != 0) {
 			gotResults = true;
 
 			float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0f);
