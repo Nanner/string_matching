@@ -76,6 +76,8 @@ public:
     
     bool saveUsers(const string& filename);
     
+    bool emailExists(const Email email, const vector<Email> emails);
+
 };
 
 #endif

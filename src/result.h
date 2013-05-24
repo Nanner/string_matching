@@ -15,8 +15,8 @@
 
 #define SAME_LINE_BONUS 20
 
-#define MATCH_DISPLAY_FORMAT "%-10s | %-6s | %-6s\n"
-#define MATCH_DISPLAY_FORMAT_RESULT "%-10s | %-6d | %-6s\n"
+#define MATCH_DISPLAY_FORMAT "%-14s | %-6s | %-6s\n"
+#define MATCH_DISPLAY_FORMAT_RESULT "%-14s | %-6d | %-6s\n"
 
 using namespace std;
 

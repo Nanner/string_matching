@@ -110,7 +110,6 @@ void Matcher::findMatches(Email &email, const string& keywords){
     vector<Match> matches = getAllStringMatchesLCS(email.getContent(), keywords);
     for (unsigned int i = 0; i < matches.size(); i++) {
         // the result will contain all the matches for the keywords
-
         result.addMatch(matches.at(i));
     }
     email.addResult(result);

@@ -91,16 +91,6 @@ vector<vector<Match> > Result::getSameLineMatches() const{
 		last = match;
 		lastLine = last->getLine();
 	}
-
-	/* // acess example
-    for (int i = 0; i < allSameLineMatches.size(); i++) {
-        for (int j = 0; j < allSameLineMatches.at(i).size(); j++) {
-            cout << allSameLineMatches.at(i).at(j).getFoundString() << " " <<
-            allSameLineMatches.at(i).at(j).getLine() << " ";
-        }
-        cout << endl;
-    }
-	 */
 	return allSameLineMatches;
 }
 
