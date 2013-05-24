@@ -10,9 +10,9 @@
 
 int main(){
     
-    string interest = "traffic systems";
+    string interest = "traffic transportation systems";
     
-	string filename = "1.txt";
+	string filename = "2.txt";
     Email email = Parser::parseEmailToObject(filename);
     Matcher::findMatches(email, interest);
     
@@ -25,6 +25,7 @@ int main(){
     Result result = email.getResults().at(0);
     result.getSameLineMatches();
      
-	mainMenu();
+    Interface interface;
+	interface.mainMenu();
     return 0;
 }

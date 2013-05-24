@@ -29,11 +29,13 @@ int Result::getPartialMatches() const {
 }
 
 int Result::getMatchScore() const {
-	int totalScore = 0;
-	for (int i = 0; i < matches.size(); i++) {
-		totalScore += matches.at(i).getScore();
-	}
-	return totalScore;
+    int totalScore = 0;
+    for (int i = 0; i < matches.size(); i++) {
+        totalScore += matches.at(i).getScore();
+    }
+    vector<vector<Match> > sameLineMatches = getSameLineMatches();
+    totalScore += SAME_LINE_BONUS * (int)sameLineMatches.size();
+    return totalScore;
 }
 
 void Result::addMatch(Match newMatch){
@@ -46,35 +48,6 @@ vector<Match> Result::getMatches(){
 	return matches;
 }
 
-vector<vector<Match> > Result::getSameLineMatches(){
-	vector<vector<Match> > allSameLineMatches;
-	vector<Match>::iterator match;
-	int lastLine = 0;
-	vector<Match>::iterator last = matches.end();
-
-	vector<Match> sameLineMatches;
-	for (match = matches.begin(); match != matches.end(); ++match) {
-		if (match->getLine() == lastLine){
-			sameLineMatches.push_back(*last);
-			sameLineMatches.push_back(*match);
-			allSameLineMatches.push_back(sameLineMatches);
-			sameLineMatches.clear();
-		}
-		last = match;
-		lastLine = last->getLine();
-	}
-
-	for (int i = 0; i < allSameLineMatches.size(); i++) {
-		for (int j = 0; j < allSameLineMatches.at(i).size(); j++) {
-			cout << allSameLineMatches.at(i).at(j).getFoundString() << " " <<
-					allSameLineMatches.at(i).at(j).getLine() << " ";
-		}
-		cout << endl;
-	}
-
-	return allSameLineMatches;
-}
-
 bool Result::isIgnoredWord(string word) {
 
 	vector<int> ignoreMatches = StringAlgorithms::KMP(Parser::ignoreList, word);
@@ -82,6 +55,44 @@ bool Result::isIgnoredWord(string word) {
 		return true;
 
 	return false;
+}
+
+vector<vector<Match> > Result::getSameLineMatches() const{
+    vector<vector<Match> > allSameLineMatches;    
+    vector<Match>::const_iterator match;
+    int lastLine = 0;
+    vector<Match>::const_iterator last = matches.end();
+
+    vector<Match> sameLineMatches;
+    for (match = matches.begin(); match != matches.end(); ++match) {
+        if (match->getLine() == lastLine){
+            // check if the same keyword is repeated in the line
+            if (StringAlgorithms::levenshtein_distance(last->getFoundString(),match->getFoundString()) < match->getFoundString().size() / 3 )
+                continue;
+            sameLineMatches.push_back(*last);
+            sameLineMatches.push_back(*match);
+            match++;
+            while (match->getLine() == lastLine) {
+                sameLineMatches.push_back(*match);
+                match++;
+            }
+            allSameLineMatches.push_back(sameLineMatches);
+            sameLineMatches.clear();
+        }
+        last = match;
+        lastLine = last->getLine();
+    }
+    
+    /* // acess example
+    for (int i = 0; i < allSameLineMatches.size(); i++) {
+        for (int j = 0; j < allSameLineMatches.at(i).size(); j++) {
+            cout << allSameLineMatches.at(i).at(j).getFoundString() << " " <<
+            allSameLineMatches.at(i).at(j).getLine() << " ";
+        }
+        cout << endl;
+    }
+    */
+    return allSameLineMatches;
 }
 
 void Result::printMatches() {

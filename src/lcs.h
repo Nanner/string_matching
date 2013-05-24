@@ -21,7 +21,11 @@
 
 using namespace std;
 
-// See http://www-igm.univ-mlv.fr/~lecroq/seqcomp/node4.html.
+/**
+ * Class for determining the LCS (longest common subsequence) of two sequences.
+ * For more information, check: 
+ * https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Longest_common_subsequence
+ */
 class LCS
 {
     class LCSTable

@@ -28,8 +28,8 @@ using namespace std;
 #define INTEREST "INTEREST"
 #define USER_FILE "users.txt"
 
-#define DISPLAY_FORMAT "%-14s | %-6s | %-13s\n"
-#define DISPLAY_FORMAT_RESULT "%d- %-14s | %-6d | %%%-13.2f\n"
+#define DISPLAY_FORMAT "%-6s | %-14s | %-6s | %-8s \n"
+#define DISPLAY_FORMAT_RESULT "%-6d | %-14s | %-6d | %-8.2f\n"
 
 /*
  *
@@ -56,48 +56,52 @@ using namespace std;
  *
  */
 
-static User loggedInUser;
-static vector<User*> users;
-static vector<Email> emails;
-static vector<Email> analyzedEmails;
-
-int getOption(int maxOption);
-
-int getOption();
-
-void mainMenu();
-
-void userMenu();
-
-void editUserMenu(User* user);
-
-void editInterestsMenu(User* user);
-
-void addUserMenu();
-
-void removeUserMenu();
-
-void loadUsersMenu();
-
-void saveUsersMenu();
-
-bool loginMenu();
-
-void emailMenu();
-
-void removeEmailMenu();
-
-void searchMenu();
-
-void displayResults();
-
-void displayEmailResults(Email email);
-
-void batchLoad(int firstEmailNumber, int lastEmailNumber);
-
-bool loadUsers(const string& filename);
-
-bool saveUsers(const string& filename);
+class Interface {
+    User loggedInUser;
+    vector<User*> users;
+    vector<Email> emails;
+    vector<Email> analyzedEmails;
+    
+public:
+    int getOption(int maxOption);
+    
+    int getOption();
+    
+    void mainMenu();
+    
+    void userMenu();
+    
+    void editUserMenu(User* user);
+    
+    void editInterestsMenu(User* user);
+    
+    void addUserMenu();
+    
+    void removeUserMenu();
+    
+    void loadUsersMenu();
+    
+    void saveUsersMenu();
+    
+    bool loginMenu();
+    
+    void emailMenu();
+    
+    void removeEmailMenu();
+    
+    void searchMenu();
+    
+    void displayResults();
+    
+    void displayEmailResults(Email email);
+    
+    void batchLoad(int firstEmailNumber, int lastEmailNumber);
+    
+    bool loadUsers(const string& filename);
+    
+    bool saveUsers(const string& filename);
+    
+};
 
 #endif
 

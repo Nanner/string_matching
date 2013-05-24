@@ -62,9 +62,9 @@ T* displayVector(vector<T> &v1) {
 	int pageNumber = 0;
 	int maxPageNumber;
 	if(v1.size()%5 == 0)
-		maxPageNumber = v1.size()/5-1;
+		maxPageNumber = (int)v1.size()/5-1;
 	else
-		maxPageNumber = v1.size()/5;
+		maxPageNumber = (int)v1.size()/5;
 	while(!hasChosen)
 	{
 		typename vector<T>::iterator it = v1.begin();

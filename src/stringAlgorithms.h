@@ -16,12 +16,26 @@
 
 using namespace std;
 
+/**
+ * A class containing all the string matching algorithms that are used.
+ */
 class StringAlgorithms {
     
 public:
+    /**
+     * Returns a vector containing the zero based index of
+     *  the start of each match of the string K in S.
+     *  Matches may overlap
+     * For more information, check
+     * https://en.wikibooks.org/wiki/Algorithm_Implementation/String_searching/Knuth-Morris-Pratt_pattern_matcher
+     */
     static vector<int> KMP(string S, string K);
     
-    // this is the Wagner-Fischer algorithm
+    /**
+     * This is an implementation of the Wagner–Fischer algorithm.
+     * For more information, check 
+     * https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance
+     */
     template<class T>
     static unsigned int levenshtein_distance(const T &s1, const T & s2)
     {
