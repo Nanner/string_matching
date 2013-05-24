@@ -19,8 +19,19 @@
 #include "stringAlgorithms.h"
 #include "result.h"
 
-using namespace std;
+//#if defined __APPLE__ || defined linux || defined (__CYGWIN32__)
+#define USE_TIMER
+//#endif
 
+#ifdef USE_TIMER
+#include <sys/time.h>
+#include <unistd.h>
+#define WAGNER_FISCHER 1
+#define LONGEST_COMMON_SUBSEQUENCE 2
+#define RUNS 100
+#endif
+
+using namespace std;
 /**
  * The matcher class will handle receiving contents and matching them with certain keywords, using the best string matching algorithms for the given situation.
  */
@@ -68,6 +79,26 @@ public:
      */
     static void findMatches(Email &email, const string& keywords);
 
+#ifdef USE_TIMER
+    /**
+     * Starts a timer to measure performance time of a function.
+     */
+    static void startTimer();
+    
+    /**
+     * Stops the timer started by startTimer() function.
+     * @return The elapsed time between the start and stop.
+     */
+    static unsigned long stopTimer();
+    
+    /**
+     * Checks the performance of a shortest path algorithm.
+     * @param start The starting city.
+     * @param algorithm The algorithm to test.
+     * @return The average performance of the algorithm.
+     */
+    static unsigned long checkPerformance(int algorithm, Email &email, const string& keywords);
+#endif
 };
 
 #endif

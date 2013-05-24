@@ -17,6 +17,7 @@
 		EB013C62174FE1A000B62BC8 /* 7.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE079F1747D4E4005E5C25 /* 7.txt */; };
 		EB013C63174FE1A000B62BC8 /* 8.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE07A01747D4E4005E5C25 /* 8.txt */; };
 		EB013C64174FE1A000B62BC8 /* 9.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBFE07A11747D4E4005E5C25 /* 9.txt */; };
+		EB188E2517502E1C006CE55E /* ignoreList.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB188E2417502E16006CE55E /* ignoreList.txt */; };
 		EB1BFF52174CFC84002BE230 /* email.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB1BFF3E174CFC84002BE230 /* email.cpp */; };
 		EB1BFF53174CFC84002BE230 /* interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB1BFF40174CFC84002BE230 /* interface.cpp */; };
 		EB1BFF54174CFC84002BE230 /* lcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB1BFF42174CFC84002BE230 /* lcs.cpp */; };
@@ -37,6 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				EB188E2517502E1C006CE55E /* ignoreList.txt in CopyFiles */,
 				EB013C5B174FE1A000B62BC8 /* 1.txt in CopyFiles */,
 				EB013C5C174FE1A000B62BC8 /* 10.txt in CopyFiles */,
 				EB013C5D174FE1A000B62BC8 /* 2.txt in CopyFiles */,
@@ -53,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EB188E2417502E16006CE55E /* ignoreList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ignoreList.txt; sourceTree = "<group>"; };
 		EB1BFF3D174CFC84002BE230 /* displayWithPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = displayWithPages.h; sourceTree = "<group>"; };
 		EB1BFF3E174CFC84002BE230 /* email.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = email.cpp; sourceTree = "<group>"; };
 		EB1BFF3F174CFC84002BE230 /* email.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = email.h; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 		EBFE0750174790E2005E5C25 = {
 			isa = PBXGroup;
 			children = (
+				EB188E2417502E16006CE55E /* ignoreList.txt */,
 				EBFE07971747D4E4005E5C25 /* emails */,
 				EBFE07651747911F005E5C25 /* src */,
 				EBFE075A174790E2005E5C25 /* Products */,
