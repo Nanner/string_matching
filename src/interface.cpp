@@ -447,7 +447,13 @@ void displayResults() {
 }
 
 void displayEmailResults(Email email) {
+	vector<Result> results = email.getResults();
 
+	for(unsigned int i = 0; i < results.size(); i++) {
+		cout << "Interest: " << results.at(i).getQuery() << endl << "Matches:" << endl;
+		results.at(i).printMatches();
+		cout << endl;
+	}
 }
 
 void batchLoad(int firstEmailNumber, int lastEmailNumber){
