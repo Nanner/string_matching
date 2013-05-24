@@ -7,6 +7,8 @@
 #include "result.h"
 #include "parser.h"
 
+class Result;
+
 using namespace std;
 
 class Email {

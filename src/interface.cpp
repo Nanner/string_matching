@@ -343,7 +343,7 @@ void emailMenu() {
 void removeEmailMenu() {
 
 	string filename;
-	cout << "Filename of email to delete?" << endl;
+	cout << "Filename of email to delete?" << endl << PROMPT;
 	getline(cin, filename);
 
 	vector<Email>::iterator it = emails.begin();
@@ -424,7 +424,6 @@ void displayResults() {
 		Email email = analyzedEmails.at(i);
 		if(!email.getResults().empty()) {
 			gotResults = true;
-	//		printf("%d, %d, %d ", email.getTotalEmailScore(), totalScore, (float) email.getTotalEmailScore() / (float) totalScore);
 			float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0);
 			printf(DISPLAY_FORMAT_RESULT, i+1, email.getFileName().c_str(),
 					email.getTotalEmailScore(),

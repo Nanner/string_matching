@@ -5,6 +5,8 @@
 #include <vector>
 
 #include "match.h"
+#include "parser.h"
+#include "stringAlgorithms.h"
 
 #include <iostream>
 
@@ -24,7 +26,9 @@ public:
     void addMatch(Match newMatch);
     vector<Match> getMatches();
     vector<vector<Match> > getSameLineMatches();
+    bool isIgnoredWord(string word);
     void printMatches();
+
 };
 
 #endif

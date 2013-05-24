@@ -18,14 +18,17 @@
 
 using namespace std;
 
+#define IGNORE_LIST "ignoreList.txt"
+
 class Email;
 
 class Parser {
     
-    
 public:
+	static string ignoreList;
     static string parseEmail(string filename);
     static Email parseEmailToObject(string filename);
+    static string parseIgnoreList(string filename);
 };
 
 class FileNotFound {
