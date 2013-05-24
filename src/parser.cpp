@@ -22,6 +22,7 @@ string Parser::parseEmail(string filename) {
 		getline(file, line);
 		contents += line;
 		contents += '\n';
+        contents.erase(remove_if(contents.begin(), contents.end(), (int(*)(int))ispunct), contents.end());
 	}
 	transform(contents.begin(), contents.end(), contents.begin(), ::tolower);
 	file.close();

@@ -50,9 +50,9 @@ vector<Match> Result::getMatches(){
 
 bool Result::isIgnoredWord(string word) {
 
-	vector<int> ignoreMatches = StringAlgorithms::KMP(Parser::ignoreList, word);
-	if(!ignoreMatches.empty())
-		return true;
+	//vector<int> ignoreMatches = StringAlgorithms::KMP(Parser::ignoreList, word);
+	//if(!ignoreMatches.empty())
+	//	return true;
 
 	return false;
 }
@@ -72,12 +72,20 @@ vector<vector<Match> > Result::getSameLineMatches() const{
             sameLineMatches.push_back(*last);
             sameLineMatches.push_back(*match);
             match++;
+            if (match == matches.end() ){
+                allSameLineMatches.push_back(sameLineMatches);
+                sameLineMatches.clear();
+                break;
+            }
+            
             while (match->getLine() == lastLine) {
                 sameLineMatches.push_back(*match);
                 match++;
             }
+            
             allSameLineMatches.push_back(sameLineMatches);
             sameLineMatches.clear();
+            if (match == matches.end() ) break;
         }
         last = match;
         lastLine = last->getLine();
