@@ -29,11 +29,7 @@ void Email::addResult(Result result) {
 }
 
 int Email::getNumberOfResults() const {
-	if(results.empty()) {
-		return 0;
-	}
-
-	return results.size();
+    return (int)results.size();
 }
 
 int Email::getTotalEmailScore() const {

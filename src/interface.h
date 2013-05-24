@@ -28,8 +28,8 @@ using namespace std;
 #define INTEREST "INTEREST"
 #define USER_FILE "users.txt"
 
-#define DISPLAY_FORMAT "%-14s | %-6s | %-13s\n"
-#define DISPLAY_FORMAT_RESULT "%-14s | %-6d | %%%-13.2f\n"
+#define DISPLAY_FORMAT "%-14s | %-6s | %-8s \n"
+#define DISPLAY_FORMAT_RESULT "%-14s | %-6d | %8.2f%% \n"
 
 /*
  *

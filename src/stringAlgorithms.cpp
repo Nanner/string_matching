@@ -8,11 +8,6 @@
 
 #include "stringAlgorithms.h"
 
-//----------------------------
-//Returns a vector containing the zero based index of
-//  the start of each match of the string K in S.
-//  Matches may overlap
-//----------------------------
 vector<int> StringAlgorithms::KMP(string S, string K)
 {
     vector<int> T(K.size() + 1, -1);

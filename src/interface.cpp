@@ -371,6 +371,7 @@ void searchMenu() {
     printf(DISPLAY_FORMAT, "Email filename", "Score", "Interest");
 	for(int i = 0; i < emails.size(); i++) {
 		Email email = emails.at(i);
+        // TODO check if there are no hits, avoid division by zero
         float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0);
         printf(DISPLAY_FORMAT_RESULT, email.getFileName().c_str(),
                                       email.getTotalEmailScore(),

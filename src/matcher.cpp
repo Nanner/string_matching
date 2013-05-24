@@ -25,7 +25,7 @@ float avgStringMatching(const string& contents, const string& keyword){
     return (float)total/words;
 }
 
-vector<Match> Matcher::approximateStringMatches(const string& contents, const string& keywords){
+vector<Match> Matcher::getAllStringMatches(const string& contents, const string& keywords){
     istringstream contentStream ( contents );
     istringstream keywordStream ( keywords );
     string keyword, word, line;
@@ -57,7 +57,7 @@ vector<Match> Matcher::approximateStringMatches(const string& contents, const st
     return matches;
 }
 
-vector<Match> Matcher::longestCommonSubsequence(const string& contents, const string& keywords){
+vector<Match> Matcher::getAllStringMatchesLCS(const string& contents, const string& keywords){
     istringstream contentStream ( contents );
     istringstream keywordStream ( keywords );
     string keyword, word, line;
@@ -106,8 +106,8 @@ vector<Match> Matcher::longestCommonSubsequence(const string& contents, const st
 void Matcher::findMatches(Email &email, const string& keywords){
     // get a result for these keywords
     Result result(keywords);
-    //vector<Match> matches = approximateStringMatches(email.getContent(), keywords);
-    vector<Match> matches = longestCommonSubsequence(email.getContent(), keywords);
+    //vector<Match> matches = getAllStringMatches(email.getContent(), keywords);
+    vector<Match> matches = getAllStringMatchesLCS(email.getContent(), keywords);
     for (int i = 0; i < matches.size(); i++) {
         // the result will contain all the matches for the keywords
         result.addMatch(matches.at(i));

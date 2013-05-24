@@ -25,28 +25,28 @@ void User::addInterest(string interest) {
 }
 
 bool User::removeInterest(string interest) {
-
+    
 	vector<string>::iterator it = interests.begin();
-
+    
 	for(; it != interests.end(); it++) {
 		if((*it).compare(interest) == 0) {
 			it = interests.erase(it);
 			return true;
 		}
 	}
-
+    
 	return false;
-
+    
 }
 
 ostream & operator << (ostream &out, User &u) {
-        out << u.name << endl;
-        if(!u.interests.empty()) {
-        	out << "Interests:" << endl;
-        	for(unsigned int i = 0; i < u.interests.size(); i++) {
-        		cout << u.interests[i] << endl;
-        	}
+    out << u.name << endl;
+    if(!u.interests.empty()) {
+        out << "Interests:" << endl;
+        for(unsigned int i = 0; i < u.interests.size(); i++) {
+            cout << u.interests[i] << endl;
         }
-
-        return out;
+    }
+    
+    return out;
 }

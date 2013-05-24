@@ -33,7 +33,7 @@ bool Match::isPartial() const{
     return (distance != 0);
 }
 
-string Match::getFoundString(){
+string Match::getFoundString() const{
     return found;
 }
 
