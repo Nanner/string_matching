@@ -42,7 +42,7 @@ vector<Match> Matcher::getAllStringMatches(const string& contents, const string&
         lineNumber++;
         istringstream lineStream (line);
         while ( lineStream >> word ) {
-            for (int i = 0; i < keywordsVector.size(); i++)
+            for (unsigned int i = 0; i < keywordsVector.size(); i++)
             {
                 keyword = keywordsVector.at(i);
                 distance = StringAlgorithms::levenshtein_distance(word, keyword);
@@ -75,7 +75,7 @@ vector<Match> Matcher::getAllStringMatchesLCS(const string& contents, const stri
         lineNumber++;
         istringstream lineStream (line);
         while ( lineStream >> word ) {
-            for (int i = 0; i < keywordsVector.size(); i++) {
+            for (unsigned int i = 0; i < keywordsVector.size(); i++) {
                 
                 keyword = keywordsVector.at(i);
                 
@@ -107,9 +107,8 @@ void Matcher::findMatches(Email &email, const string& keywords){
     Result result(keywords);
     //vector<Match> matches = getAllStringMatches(email.getContent(), keywords);
     vector<Match> matches = getAllStringMatchesLCS(email.getContent(), keywords);
-    for (int i = 0; i < matches.size(); i++) {
+    for (unsigned int i = 0; i < matches.size(); i++) {
         // the result will contain all the matches for the keywords
-
         result.addMatch(matches.at(i));
     }
     email.addResult(result);

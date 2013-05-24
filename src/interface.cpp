@@ -8,10 +8,10 @@ void Interface::mainMenu() {
 
 	while(continueMenu) {
 
-		cout << endl << "Conference Alert" << endl;
+		cout << endl << "---Conference Alert---";
 
 		if(userChosen)
-			cout << "Logged in as: " << loggedInUser.getName() << endl;
+			cout << endl << "Logged in as: " << loggedInUser.getName();
 
 		cout << endl << "0- Exit\n1- User menu\n2- User login\n3- Load emails\n";
 		if(userChosen && !emails.empty()) {
@@ -34,6 +34,8 @@ void Interface::mainMenu() {
 			break;
 		case 2:
 			userChosen = loginMenu();
+			cout << "Press enter to continue" << endl;
+			getchar();
 			break;
 		case 3:
 			emailMenu();
@@ -56,9 +58,9 @@ void Interface::userMenu() {
 
 	while(continueMenu) {
 
-		cout << endl << "User menu" << endl;
+		cout << endl << "--User menu--" << endl;
 
-		cout << endl << "0- Back\n1- Edit user\n2- Add user\n"
+		cout << "0- Back\n1- Edit user\n2- Add user\n"
 				"3- Remove user\n4- Load users\n5- Save users\n";
 
 		int option = getOption(numberOfOptions);
@@ -85,15 +87,23 @@ void Interface::userMenu() {
 		break;
 		case 2:
 			addUserMenu();
+			cout << "Press enter to continue" << endl;
+			getchar();
 			break;
 		case 3:
 			removeUserMenu();
+			cout << "Press enter to continue" << endl;
+			getchar();
 			break;
 		case 4:
 			loadUsersMenu();
+			cout << "Press enter to continue" << endl;
+			getchar();
 			break;
 		case 5:
 			saveUsersMenu();
+			cout << "Press enter to continue" << endl;
+			getchar();
 			break;
 		default:
 			cout << "Invalid option!\n";
@@ -110,9 +120,9 @@ void Interface::editUserMenu(User* user) {
 
 	while(continueMenu) {
 
-		cout << endl << "Edit user" << endl;
+		cout << endl << "-Edit user-" << endl;
 
-		cout << endl << "0- Back\n1- Edit name\n2- Edit topics of interest\n";
+		cout << "0- Back\n1- Edit name\n2- Edit topics of interest\n";
 
 		int option = getOption(numberOfOptions);
 
@@ -150,9 +160,9 @@ void Interface::editInterestsMenu(User* user) {
 
 	while(continueMenu) {
 
-		cout << endl << "Edit interests" << endl;
+		cout << endl << "-Edit interests-" << endl;
 
-		cout << endl << "0- Back\n1- Add interest\n2- Remove interest\n";
+		cout << "0- Back\n1- Add interest\n2- Remove interest\n";
 
 		int option = getOption(numberOfOptions);
 
@@ -203,13 +213,12 @@ void Interface::editInterestsMenu(User* user) {
 void Interface::addUserMenu() {
 
 	string newName;
-	cout << "New user name?" << endl;
+	cout << "New user name?" << endl << PROMPT;
 	getline(cin, newName);
 
 	for(unsigned int i = 0; i < users.size(); i++) {
 		if(users[i]->getName().compare(newName) == 0) {
-			cout << "A user with that name already exists!" << endl << "Press enter to continue" << endl;
-			getchar();
+			cout << "A user with that name already exists!" << endl;
 			return;
 		}
 	}
@@ -217,6 +226,7 @@ void Interface::addUserMenu() {
 	User* newUser = new User(newName);
 
 	users.push_back(newUser);
+	cout << "Added user!" << endl;
 }
 
 void Interface::removeUserMenu() {
@@ -230,14 +240,12 @@ void Interface::removeUserMenu() {
 	for(; it != users.end(); it++) {
 		if((*it)->getName().compare(name) == 0) {
 			it = users.erase(it);
-			cout << "Removed user!" << endl << "Press enter to continue" << endl;
-			getchar();
+			cout << "Removed user!" << endl;
 			return;
 		}
 	}
 
-	cout << "User not found!" << endl << "Press enter to continue" << endl;
-	getchar();
+	cout << "User not found!" << endl;
 }
 
 void Interface::loadUsersMenu() {
@@ -266,6 +274,11 @@ void Interface::saveUsersMenu(){
 
 bool Interface::loginMenu() {
 
+	if(users.empty()) {
+		cout << "No users are currently registered! Please add some users before logging in" << endl;
+		return false;
+	}
+
 	cout << "Choose a user to log in as: " << endl;
 	User* user = displayVector(users);
 
@@ -286,9 +299,9 @@ void Interface::emailMenu() {
 
 	while(continueMenu) {
 
-		cout << endl << "Email menu" << endl;
+		cout << endl << "--Email menu--" << endl;
 
-		cout << endl << "0- Back\n1- Load single email\n2- Remove email\n"
+		cout << "0- Back\n1- Load single email\n2- Remove email\n"
 				"3- Batch load emails\n";
 
 		int option = getOption(numberOfOptions);
@@ -306,8 +319,13 @@ void Interface::emailMenu() {
 
 			try {
 				email = Parser::parseEmailToObject(filename);
-				emails.push_back(email);
-				cout << "Email opened!" << endl;
+				if(emailExists(email, emails)) {
+					cout << "That email is already loaded!" << endl;
+				}
+				else {
+					emails.push_back(email);
+					cout << "Email opened!" << endl;
+				}
 			}
 			catch (FileNotFound &nf) {
 				cout << "Could not open file " << nf.getName() << ", does it exist?" << endl;
@@ -368,9 +386,9 @@ void Interface::searchMenu() {
 
 	while(continueMenu) {
 
-		cout << endl << "Search menu" << endl;
+		cout << endl << "--Search menu--" << endl;
 
-		cout << endl << "0- Back\n1- Run search\n2- Display results\n";
+		cout << "0- Back\n1- Run search\n2- Display results\n";
 
 		int option = getOption(numberOfOptions);
 
@@ -412,6 +430,7 @@ void Interface::displayResults() {
 	bool gotResults = false;
 
 	int totalScore = 0;
+	int emailsDisplayed = 0;
 
 	for(unsigned int i = 0; i < analyzedEmails.size(); i++) {
 		totalScore += (analyzedEmails.at(i).getTotalEmailScore());
@@ -430,6 +449,8 @@ void Interface::displayResults() {
 			printf(DISPLAY_FORMAT_RESULT, i+1, email.getFileName().c_str(),
 					email.getTotalEmailScore(),
 					interestPercentage);
+
+			emailsDisplayed++;
 		}
 	}
 
@@ -438,7 +459,7 @@ void Interface::displayResults() {
 	}
 	else {
 		cout << "If you want to verify what lead to an email's result, press its corresponding index (0 to exit)" << endl;
-		int option = getOption((int)analyzedEmails.size() + 1);
+		int option = getOption(emailsDisplayed);
 
 		if(option == 0) {
 			return;
@@ -464,7 +485,12 @@ void Interface::batchLoad(int firstEmailNumber, int lastEmailNumber){
 		filename << i << MAIL_FILE;
 		try {
 			Email email = Parser::parseEmailToObject(filename.str());
-			emails.push_back(email);
+			if(emailExists(email, emails)) {
+				cout << "Skipped " << filename.str() << ", email already loaded." << endl;
+			}
+			else {
+				emails.push_back(email);
+			}
 		}
 		catch(FileNotFound& nf) {
 			cout << "Failed to load " << nf.getName() << ", does it exist?" << endl;
@@ -556,4 +582,15 @@ int Interface::getOption() {
 	} while(true);
 
 	return option;
+}
+
+bool Interface::emailExists(const Email email, const vector<Email> emails) {
+
+	for(unsigned int i = 0; i < emails.size(); i++) {
+		if(email.getFileName().compare(emails.at(i).getFileName()) == 0) {
+			return true;
+		}
+	}
+
+	return false;
 }

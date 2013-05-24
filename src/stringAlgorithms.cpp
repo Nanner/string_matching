@@ -18,7 +18,7 @@ vector<int> StringAlgorithms::KMP(string S, string K)
         matches.push_back(0);
         return matches;
     }
-    for(int i = 1; i <= K.size(); i++)
+    for(unsigned int i = 1; i <= K.size(); i++)
     {
         int pos = T[i - 1];
         while(pos != -1 && K[pos] != K[i - 1]) pos = T[pos];

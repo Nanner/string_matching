@@ -30,7 +30,7 @@ int Result::getPartialMatches() const {
 
 int Result::getMatchScore() const {
 	int totalScore = 0;
-	for (int i = 0; i < matches.size(); i++) {
+	for (unsigned int i = 0; i < matches.size(); i++) {
 		totalScore += matches.at(i).getScore();
 	}
 	vector<vector<Match> > sameLineMatches = getSameLineMatches();
@@ -91,16 +91,6 @@ vector<vector<Match> > Result::getSameLineMatches() const{
 		last = match;
 		lastLine = last->getLine();
 	}
-
-	/* // acess example
-    for (int i = 0; i < allSameLineMatches.size(); i++) {
-        for (int j = 0; j < allSameLineMatches.at(i).size(); j++) {
-            cout << allSameLineMatches.at(i).at(j).getFoundString() << " " <<
-            allSameLineMatches.at(i).at(j).getLine() << " ";
-        }
-        cout << endl;
-    }
-	 */
 	return allSameLineMatches;
 }
 
@@ -111,20 +101,29 @@ void Result::printMatches() {
 
 	if(tmpMatches.empty()) {
 		cout << "There were no matches for this interest." << endl;
+		return;
 	}
 
+	printf(MATCH_DISPLAY_FORMAT, "Keyword", "Hits", "Lines");
+
 	for(; it != tmpMatches.end(); it++) {
-		cout << "Found the keyword " << it->getFoundString() << " at line(s):" << endl;
-		cout << it->getLine();
+		string keyword = it->getFoundString();
+		string lines;
+		lines = SSTR(it->getLine());
+		int hits = 1;
 		for(it2 = it + 1; it2 != tmpMatches.end(); ) {
 			if(it->getFoundString().compare(it2->getFoundString()) == 0) {
-				cout << ", " << it2->getLine();
+				lines += ", " + SSTR(it2->getLine());
+				hits++;
 				it2 = tmpMatches.erase(it2);
 			}
 			else {
 				++it2;
 			}
 		}
-		cout << endl;
+
+		printf(MATCH_DISPLAY_FORMAT_RESULT, keyword.c_str(), hits, lines.c_str());
 	}
+
+
 }
