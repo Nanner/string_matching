@@ -31,31 +31,6 @@ using namespace std;
 #define DISPLAY_FORMAT "%-6s | %-14s | %-6s | %-8s \n"
 #define DISPLAY_FORMAT_RESULT "%-6d | %-14s | %-6d | %-8.2f\n"
 
-/*
- *
- * Interface
- *
- * 1- User menu
- *    1a- Edit user -- Choose user
- *        1aa- Edit name
- *        1ab- Edit topics of interest
- *             1aba- Add interest
- *             1abb- Remove interest
- *    1b- Add user
- *    1c- Remove user
- *    1d- Load users
- *
- * 2- User "login"
- *
- * 3- Load emails
- *    3a- Load single email
- *    3b- Remove single email
- *    3c- Batch load -- inform load format
- *
- * 4- Start search -- Show results
- *
- */
-
 class Interface {
     User loggedInUser;
     vector<User*> users;

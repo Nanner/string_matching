@@ -4,12 +4,19 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <sstream>
 
 #include "match.h"
 #include "parser.h"
 #include "stringAlgorithms.h"
 
+#define SSTR( x ) dynamic_cast< std::ostringstream & >( \
+        ( std::ostringstream() << std::dec << x ) ).str()
+
 #define SAME_LINE_BONUS 20
+
+#define MATCH_DISPLAY_FORMAT "%-10s | %-6s | %-6s\n"
+#define MATCH_DISPLAY_FORMAT_RESULT "%-10s | %-6d | %-6s\n"
 
 using namespace std;
 
