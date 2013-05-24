@@ -81,6 +81,7 @@ vector<vector<Match> > Result::getSameLineMatches() const{
 			while (match->getLine() == lastLine) {
 				sameLineMatches.push_back(*match);
 				match++;
+                if (match == matches.end() ) break;
 			}
 
 			allSameLineMatches.push_back(sameLineMatches);

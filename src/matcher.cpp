@@ -34,8 +34,7 @@ vector<Match> Matcher::getAllStringMatches(const string& contents, const string&
     vector<Match> matches;
     
     // parse all the keywords
-    while ( keywordStream.good() ) {
-        keywordStream >> keyword;
+    while ( keywordStream >> keyword ) {
         keywordsVector.push_back(keyword);
     }
     
@@ -60,6 +59,7 @@ vector<Match> Matcher::getAllStringMatches(const string& contents, const string&
 vector<Match> Matcher::getAllStringMatchesLCS(const string& contents, const string& keywords){
     istringstream contentStream ( contents );
     istringstream keywordStream ( keywords );
+        
     string keyword, word, line;
     vector<string> keywordsVector;
     int distance, lineNumber = 0;
@@ -67,8 +67,7 @@ vector<Match> Matcher::getAllStringMatchesLCS(const string& contents, const stri
     vector<Match> matches;
     
     // parse all the keywords
-    while ( keywordStream.good() ) {
-        keywordStream >> keyword;
+    while ( keywordStream >> keyword ) {
         keywordsVector.push_back(keyword);
     }
     
