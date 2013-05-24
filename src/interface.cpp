@@ -15,7 +15,7 @@ void mainMenu() {
 
 		cout << endl << "0- Exit\n1- User menu\n2- User login\n3- Load emails\n";
 		if(userChosen && !emails.empty()) {
-			cout << "4- Start search" << endl;
+			cout << "4- Search menu" << endl;
 			numberOfOptions = 4;
 		}
 		else {
@@ -58,7 +58,7 @@ void userMenu() {
 
 		cout << endl << "User menu" << endl;
 
-		cout << endl << "0- Exit\n1- Edit user\n2- Add user\n"
+		cout << endl << "0- Back\n1- Edit user\n2- Add user\n"
 				"3- Remove user\n4- Load users\n5- Save users\n";
 
 		int option = getOption(numberOfOptions);
@@ -112,7 +112,7 @@ void editUserMenu(User* user) {
 
 		cout << endl << "Edit user" << endl;
 
-		cout << endl << "0- Exit\n1- Edit name\n2- Edit topics of interest\n";
+		cout << endl << "0- Back\n1- Edit name\n2- Edit topics of interest\n";
 
 		int option = getOption(numberOfOptions);
 
@@ -152,7 +152,7 @@ void editInterestsMenu(User* user) {
 
 		cout << endl << "Edit interests" << endl;
 
-		cout << endl << "0- Exit\n1- Add interest\n2- Remove interest\n";
+		cout << endl << "0- Back\n1- Add interest\n2- Remove interest\n";
 
 		int option = getOption(numberOfOptions);
 
@@ -298,12 +298,20 @@ void emailMenu() {
 			return;
 			break;
 		case 1:
-			//TODO add exception for email not found
 		{
 			cout << "Email filename?" << endl << "> ";
 			string filename;
 			getline(cin, filename);
-			emails.push_back(Parser::parseEmailToObject(filename));
+			Email email;
+
+			try {
+				email = Parser::parseEmailToObject(filename);
+				emails.push_back(email);
+				cout << "Email opened!" << endl;
+			}
+			catch (FileNotFound &nf) {
+				cout << "Could not open file " << nf.getName() << ", does it exist?" << endl;
+			}
 
 			cout << "Press enter to continue" << endl;
 			getchar();
@@ -314,19 +322,17 @@ void emailMenu() {
 			break;
 		case 3:
 		{
-			// TODO get first and last number here
-			// TODO warning that mails must be formatted "1.txt", "2.txt"
 			int a, b;
 			cout << "Email files must be formatted like '1.txt', '2.txt', etc." << endl;
-			cout << "Start loading from where? (insert a number)" << endl << PROMPT;
-			cin >> a;
-			cout << "To where? (insert a number)" << endl << PROMPT;
-			cin >> b;
+			cout << "Start loading from where? (insert a number)" << endl;
+			a = getOption();
+			cout << "To where? (insert a number)" << endl;
+			b = getOption();
 			batchLoad(a, b);
 			cout << "Finished batch load" << endl << "Press enter to continue" << endl;
 			getchar();
 		}
-			break;
+		break;
 		default:
 			cout << "Invalid option!\n";
 			break;
@@ -357,51 +363,111 @@ void removeEmailMenu() {
 
 void searchMenu() {
 
-	Stat emailsStat(emails, loggedInUser);
-	emails = emailsStat.getEmails();
+	bool continueMenu = true;
+	int numberOfOptions = 4;
 
-	int totalScore;
+	while(continueMenu) {
 
-	for(int i = 0; i < emails.size(); i++) {
-		totalScore += (emails.at(i).getTotalEmailScore());
+		cout << endl << "Search menu" << endl;
+
+		cout << endl << "0- Back\n1- Run search\n2- Display results\n";
+
+		int option = getOption(numberOfOptions);
+
+		switch(option) {
+		case 0:
+			return;
+			break;
+		case 1:
+		{
+			Stat emailsStat(emails, loggedInUser);
+			analyzedEmails = emailsStat.getEmails();
+			displayResults();
+
+			cout << "Press enter to continue" << endl;
+			getchar();
+		}
+		break;
+		case 2:
+			if(analyzedEmails.empty()) {
+				cout << "You haven't run an analysis yet!" << endl;
+			}
+			else {
+				displayResults();
+			}
+
+			cout << "Press enter to continue" << endl;
+			getchar();
+			break;
+		default:
+			cout << "Invalid option!\n";
+			break;
+		}
+	}
+
+}
+
+void displayResults() {
+
+	bool gotResults = false;
+
+	int totalScore = 0;
+
+	for(unsigned int i = 0; i < analyzedEmails.size(); i++) {
+		totalScore += (analyzedEmails.at(i).getTotalEmailScore());
 	}
 
 	cout << "Emails, ordered by relevance to user interests:" << endl;
 
-    printf(DISPLAY_FORMAT, "Email filename", "Score", "Interest");
-	for(int i = 0; i < emails.size(); i++) {
-		Email email = emails.at(i);
-        // TODO check if there are no hits, avoid division by zero
-        float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0);
-        printf(DISPLAY_FORMAT_RESULT, email.getFileName().c_str(),
-                                      email.getTotalEmailScore(),
-                                      interestPercentage);
+	printf(DISPLAY_FORMAT, "Index", "Email filename", "Score", "Interest %");
+	for(unsigned int i = 0; i < analyzedEmails.size(); i++) {
+		Email email = analyzedEmails.at(i);
+		if(!email.getResults().empty()) {
+			gotResults = true;
+	//		printf("%d, %d, %d ", email.getTotalEmailScore(), totalScore, (float) email.getTotalEmailScore() / (float) totalScore);
+			float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0);
+			printf(DISPLAY_FORMAT_RESULT, i+1, email.getFileName().c_str(),
+					email.getTotalEmailScore(),
+					interestPercentage);
+		}
+	}
+
+	if(!gotResults) {
+		cout << "No emails were found to be relevant to your interests." << endl;
+	}
+	else {
+		cout << "If you want to verify what lead to an email's result, press its corresponding index (0 to exit)" << endl;
+		int option = getOption(analyzedEmails.size() + 1);
+
+		if(option == 0) {
+			return;
+		}
+
+		displayEmailResults(analyzedEmails.at(option-1));
 	}
 }
 
-int getOption(int maxOption) {
-	string input = "";
-	int option;
+void displayEmailResults(Email email) {
+	vector<Result> results = email.getResults();
 
-	do {
-		cout << PROMPT;
-		getline(cin, input);
-		stringstream stream(input);
-
-		if (stream >> option && option >= 0 && option <= maxOption)
-			break;
-
-		cout << "Please enter a valid option" << endl;
-	} while(true);
-
-	return option;
+	for(unsigned int i = 0; i < results.size(); i++) {
+		cout << "Interest: " << results.at(i).getQuery() << endl << "Matches:" << endl;
+		results.at(i).printMatches();
+		cout << endl;
+	}
 }
 
 void batchLoad(int firstEmailNumber, int lastEmailNumber){
 	for (int i = firstEmailNumber; i < lastEmailNumber+1; i++) {
 		stringstream filename;
 		filename << i << MAIL_FILE;
-		emails.push_back(Parser::parseEmailToObject(filename.str()));
+		try {
+			Email email = Parser::parseEmailToObject(filename.str());
+			emails.push_back(email);
+		}
+		catch(FileNotFound& nf) {
+			cout << "Failed to load " << nf.getName() << ", does it exist?" << endl;
+		}
 	}
 }
 
@@ -455,3 +521,38 @@ bool saveUsers(const string& filename){
 	return true;
 }
 
+int getOption(int maxOption) {
+	string input = "";
+	int option;
+
+	do {
+		cout << PROMPT;
+		getline(cin, input);
+		stringstream stream(input);
+
+		if (stream >> option && option >= 0 && option <= maxOption)
+			break;
+
+		cout << "Please enter a valid option" << endl;
+	} while(true);
+
+	return option;
+}
+
+int getOption() {
+	string input = "";
+	int option;
+
+	do {
+		cout << PROMPT;
+		getline(cin, input);
+		stringstream stream(input);
+
+		if (stream >> option && option > 0)
+			break;
+
+		cout << "Please enter a valid option" << endl;
+	} while(true);
+
+	return option;
+}

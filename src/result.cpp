@@ -83,3 +83,28 @@ vector<vector<Match> > Result::getSameLineMatches() const{
     */
     return allSameLineMatches;
 }
+
+void Result::printMatches() {
+	vector<Match> tmpMatches = matches;
+	vector<Match>::iterator it = tmpMatches.begin();
+	vector<Match>::iterator it2 = tmpMatches.begin() + 1;
+
+	if(tmpMatches.empty()) {
+		cout << "There were no matches for this interest." << endl;
+	}
+
+	for(; it != tmpMatches.end(); it++) {
+		cout << "Found the keyword " << it->getFoundString() << " at line(s):" << endl;
+		cout << it->getLine();
+		for(it2 = it + 1; it2 != tmpMatches.end(); ) {
+			if(it->getFoundString().compare(it2->getFoundString()) == 0) {
+				cout << ", " << it2->getLine();
+				it2 = tmpMatches.erase(it2);
+			}
+			else {
+				++it2;
+			}
+		}
+		cout << endl;
+	}
+}

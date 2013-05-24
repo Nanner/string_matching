@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "match.h"
 #include "stringAlgorithms.h"
@@ -62,6 +63,8 @@ public:
      * @return A vector for each line containing vectors with each keyword found.
      */
     vector<vector<Match> > getSameLineMatches() const;
+    
+    void printMatches();
 };
 
 #endif
