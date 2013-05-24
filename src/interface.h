@@ -56,48 +56,52 @@ using namespace std;
  *
  */
 
-static User loggedInUser;
-static vector<User*> users;
-static vector<Email> emails;
-static vector<Email> analyzedEmails;
-
-int getOption(int maxOption);
-
-int getOption();
-
-void mainMenu();
-
-void userMenu();
-
-void editUserMenu(User* user);
-
-void editInterestsMenu(User* user);
-
-void addUserMenu();
-
-void removeUserMenu();
-
-void loadUsersMenu();
-
-void saveUsersMenu();
-
-bool loginMenu();
-
-void emailMenu();
-
-void removeEmailMenu();
-
-void searchMenu();
-
-void displayResults();
-
-void displayEmailResults(Email email);
-
-void batchLoad(int firstEmailNumber, int lastEmailNumber);
-
-bool loadUsers(const string& filename);
-
-bool saveUsers(const string& filename);
+class Interface {
+    User loggedInUser;
+    vector<User*> users;
+    vector<Email> emails;
+    vector<Email> analyzedEmails;
+    
+public:
+    int getOption(int maxOption);
+    
+    int getOption();
+    
+    void mainMenu();
+    
+    void userMenu();
+    
+    void editUserMenu(User* user);
+    
+    void editInterestsMenu(User* user);
+    
+    void addUserMenu();
+    
+    void removeUserMenu();
+    
+    void loadUsersMenu();
+    
+    void saveUsersMenu();
+    
+    bool loginMenu();
+    
+    void emailMenu();
+    
+    void removeEmailMenu();
+    
+    void searchMenu();
+    
+    void displayResults();
+    
+    void displayEmailResults(Email email);
+    
+    void batchLoad(int firstEmailNumber, int lastEmailNumber);
+    
+    bool loadUsers(const string& filename);
+    
+    bool saveUsers(const string& filename);
+    
+};
 
 #endif
 

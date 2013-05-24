@@ -32,7 +32,7 @@ vector<int> StringAlgorithms::KMP(string S, string K)
         while(kp != -1 && (kp == K.size() || K[kp] != S[sp])) kp = T[kp];
         kp++;
         sp++;
-        if(kp == K.size()) matches.push_back(sp - K.size());
+        if(kp == K.size()) matches.push_back(sp - (int)K.size());
     }
     
     return matches;

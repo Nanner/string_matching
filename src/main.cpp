@@ -25,7 +25,7 @@ int main(){
     Result result = email.getResults().at(0);
     result.getSameLineMatches();
      
-    
-	mainMenu();
+    Interface interface;
+	interface.mainMenu();
     return 0;
 }

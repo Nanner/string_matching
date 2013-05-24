@@ -1,6 +1,6 @@
 #include "interface.h"
 
-void mainMenu() {
+void Interface::mainMenu() {
 
 	bool continueMenu = true;
 	bool userChosen = false;
@@ -49,7 +49,7 @@ void mainMenu() {
 	}
 }
 
-void userMenu() {
+void Interface::userMenu() {
 
 	bool continueMenu = true;
 	int numberOfOptions = 5;
@@ -103,7 +103,7 @@ void userMenu() {
 	}
 }
 
-void editUserMenu(User* user) {
+void Interface::editUserMenu(User* user) {
 
 	bool continueMenu = true;
 	int numberOfOptions = 2;
@@ -143,7 +143,7 @@ void editUserMenu(User* user) {
 
 }
 
-void editInterestsMenu(User* user) {
+void Interface::editInterestsMenu(User* user) {
 
 	bool continueMenu = true;
 	int numberOfOptions = 2;
@@ -200,7 +200,7 @@ void editInterestsMenu(User* user) {
 	}
 }
 
-void addUserMenu() {
+void Interface::addUserMenu() {
 
 	string newName;
 	cout << "New user name?" << endl;
@@ -219,7 +219,7 @@ void addUserMenu() {
 	users.push_back(newUser);
 }
 
-void removeUserMenu() {
+void Interface::removeUserMenu() {
 
 	string name;
 	cout << "Name of user to delete?" << endl;
@@ -240,7 +240,7 @@ void removeUserMenu() {
 	getchar();
 }
 
-void loadUsersMenu() {
+void Interface::loadUsersMenu() {
 	cout << "User filename?" << endl << PROMPT;
 	string filename;
 	getline(cin, filename);
@@ -252,7 +252,7 @@ void loadUsersMenu() {
 	}
 }
 
-void saveUsersMenu(){
+void Interface::saveUsersMenu(){
 	cout << "User filename?" << endl << PROMPT;
 	string filename;
 	getline(cin, filename);
@@ -264,7 +264,7 @@ void saveUsersMenu(){
 	}
 }
 
-bool loginMenu() {
+bool Interface::loginMenu() {
 
 	cout << "Choose a user to log in as: " << endl;
 	User* user = displayVector(users);
@@ -280,7 +280,7 @@ bool loginMenu() {
 	}
 }
 
-void emailMenu() {
+void Interface::emailMenu() {
 	bool continueMenu = true;
 	int numberOfOptions = 4;
 
@@ -340,7 +340,7 @@ void emailMenu() {
 	}
 }
 
-void removeEmailMenu() {
+void Interface::removeEmailMenu() {
 
 	string filename;
 	cout << "Filename of email to delete?" << endl;
@@ -361,7 +361,7 @@ void removeEmailMenu() {
 	getchar();
 }
 
-void searchMenu() {
+void Interface::searchMenu() {
 
 	bool continueMenu = true;
 	int numberOfOptions = 4;
@@ -407,7 +407,7 @@ void searchMenu() {
 
 }
 
-void displayResults() {
+void Interface::displayResults() {
 
 	bool gotResults = false;
 
@@ -425,7 +425,7 @@ void displayResults() {
 		if(!email.getResults().empty()) {
 			gotResults = true;
 	//		printf("%d, %d, %d ", email.getTotalEmailScore(), totalScore, (float) email.getTotalEmailScore() / (float) totalScore);
-			float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0);
+			float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0f);
 			printf(DISPLAY_FORMAT_RESULT, i+1, email.getFileName().c_str(),
 					email.getTotalEmailScore(),
 					interestPercentage);
@@ -437,7 +437,7 @@ void displayResults() {
 	}
 	else {
 		cout << "If you want to verify what lead to an email's result, press its corresponding index (0 to exit)" << endl;
-		int option = getOption(analyzedEmails.size() + 1);
+		int option = getOption((int)analyzedEmails.size() + 1);
 
 		if(option == 0) {
 			return;
@@ -447,7 +447,7 @@ void displayResults() {
 	}
 }
 
-void displayEmailResults(Email email) {
+void Interface::displayEmailResults(Email email) {
 	vector<Result> results = email.getResults();
 
 	for(unsigned int i = 0; i < results.size(); i++) {
@@ -457,7 +457,7 @@ void displayEmailResults(Email email) {
 	}
 }
 
-void batchLoad(int firstEmailNumber, int lastEmailNumber){
+void Interface::batchLoad(int firstEmailNumber, int lastEmailNumber){
 	for (int i = firstEmailNumber; i < lastEmailNumber+1; i++) {
 		stringstream filename;
 		filename << i << MAIL_FILE;
@@ -471,7 +471,7 @@ void batchLoad(int firstEmailNumber, int lastEmailNumber){
 	}
 }
 
-bool loadUsers(const string& filename){
+bool Interface::loadUsers(const string& filename){
 	ifstream file;
 	file.open(filename.c_str());
 
@@ -506,7 +506,7 @@ bool loadUsers(const string& filename){
 	return true;
 }
 
-bool saveUsers(const string& filename){
+bool Interface::saveUsers(const string& filename){
 	ofstream file;
 	file.open(filename.c_str(), fstream::trunc);
 	vector<User*>::iterator user;
@@ -521,7 +521,7 @@ bool saveUsers(const string& filename){
 	return true;
 }
 
-int getOption(int maxOption) {
+int Interface::getOption(int maxOption) {
 	string input = "";
 	int option;
 
@@ -539,7 +539,7 @@ int getOption(int maxOption) {
 	return option;
 }
 
-int getOption() {
+int Interface::getOption() {
 	string input = "";
 	int option;
 
