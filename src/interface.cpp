@@ -411,7 +411,7 @@ void displayResults() {
 
 	bool gotResults = false;
 
-	int totalScore;
+	int totalScore = 0;
 
 	for(unsigned int i = 0; i < analyzedEmails.size(); i++) {
 		totalScore += (analyzedEmails.at(i).getTotalEmailScore());
@@ -424,6 +424,7 @@ void displayResults() {
 		Email email = analyzedEmails.at(i);
 		if(!email.getResults().empty()) {
 			gotResults = true;
+	//		printf("%d, %d, %d ", email.getTotalEmailScore(), totalScore, (float) email.getTotalEmailScore() / (float) totalScore);
 			float interestPercentage = (( (float) email.getTotalEmailScore() / (float) totalScore) * 100.0);
 			printf(DISPLAY_FORMAT_RESULT, i+1, email.getFileName().c_str(),
 					email.getTotalEmailScore(),

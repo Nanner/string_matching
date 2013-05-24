@@ -78,6 +78,10 @@ void Result::printMatches() {
 	vector<Match>::iterator it = tmpMatches.begin();
 	vector<Match>::iterator it2 = tmpMatches.begin() + 1;
 
+	if(tmpMatches.empty()) {
+		cout << "There were no matches for this interest." << endl;
+	}
+
 	for(; it != tmpMatches.end(); it++) {
 		cout << "Found the keyword " << it->getFoundString() << " at line(s):" << endl;
 		cout << it->getLine();
