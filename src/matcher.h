@@ -84,10 +84,15 @@ public:
     static void findMatches(Email &email, const string& keywords);
     
     /**
-     * Activates benchmark to test the string matching algorithms performance times.
-     * @param performanceOn If the performance mode will be switched on.
+     * Checks if performance mode is currently activated or deactivated.
+     * @return True if performance mode is ON, false otherwise.
      */
-    static void setPerformanceMode(bool performanceOn);
+    static bool isOnPerformanceMode();
+
+    /**
+     * Toggles benchmark to test the string matching algorithms performance times.
+     */
+    static void togglePerformanceMode();
 
 #ifdef USE_TIMER
     /**

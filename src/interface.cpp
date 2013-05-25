@@ -389,6 +389,12 @@ void Interface::searchMenu() {
 		cout << endl << "--Search menu--" << endl;
 
 		cout << "0- Back\n1- Run search\n2- Display results\n";
+		if(Matcher::isOnPerformanceMode()) {
+			cout << "3- Deactivate performance mode\n";
+		}
+		else {
+			cout << "3- Activate performance mode\n";
+		}
 
 		int option = getOption(numberOfOptions);
 
@@ -416,6 +422,9 @@ void Interface::searchMenu() {
 
 			cout << "Press enter to continue" << endl;
 			getchar();
+			break;
+		case 3:
+			Matcher::togglePerformanceMode();
 			break;
 		default:
 			cout << "Invalid option!\n";

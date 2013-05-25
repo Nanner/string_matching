@@ -19,7 +19,7 @@ int Matcher::getExactMatches(const string& contents, const string& keywords){
     return (int)matches.size();
 }
 
-float avgStringMatching(const string& contents, const string& keyword){
+float Matcher::avgStringMatching(const string& contents, const string& keyword){
     stringstream contentStream ( contents );
     string word;
     int words = 0; int total = 0;
@@ -116,14 +116,15 @@ void Matcher::findMatches(Email &email, const string& keywords){
     static unsigned int numberOfRuns = 0;
     
     if (performanceMode){
+    	unsigned long average1 = 0;
+    	unsigned long average2 = 0;
 #ifdef USE_TIMER
         stringstream performance;
-        unsigned long average1 = checkPerformance(WAGNER_FISCHER, email, keywords);
-        unsigned long average2 = checkPerformance(LONGEST_COMMON_SUBSEQUENCE, email, keywords);
+        average1 = checkPerformance(WAGNER_FISCHER, email, keywords);
+        average2 = checkPerformance(LONGEST_COMMON_SUBSEQUENCE, email, keywords);
         performance << email.getFileName() << " keywords: " << keywords << endl;
         performance << "W-F performance: " << average1 << " microseconds" << endl;
         performance << "LCS performance: " << average2 << " microseconds" << endl;
-        //cout << performance.str();
 #endif
         totalAvg1 += average1; totalAvg2 += average2;
         numberOfRuns++;
@@ -145,8 +146,12 @@ void Matcher::findMatches(Email &email, const string& keywords){
     email.addResult(result);
 }
 
-void Matcher::setPerformanceMode(bool performanceOn){
-    performanceMode = performanceOn;
+bool Matcher::isOnPerformanceMode() {
+	return performanceMode;
+}
+
+void Matcher::togglePerformanceMode(){
+    performanceMode = !performanceMode;
 }
 
 #ifdef USE_TIMER
