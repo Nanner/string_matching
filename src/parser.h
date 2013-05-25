@@ -31,7 +31,7 @@ class Email;
 class Parser {
 
 public:
-	static string ignoreList;
+	static string ignoreList; /**< A string containing a list of words to be ignored during word matching. */
 
 	/**
 	 * Opens a file and parses it's contents to a formatted string.

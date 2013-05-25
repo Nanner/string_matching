@@ -55,9 +55,7 @@ public:
 	int getOption(int maxOption);
 
 	/**
-	 * Asks for the user to input a number from 0 to maxOption. Checks if the input is valid.
-	 *
-	 * @param maxOption The maximum number that can be given by the user
+	 * Asks for the user to input a number bigger than 0. Checks if the input is valid.
 	 * @return The option made by the user
 	 */
 	int getOption();
@@ -117,36 +115,36 @@ public:
 	 */
 	void emailMenu();
 
-	/*
+	/**
 	 * Removes the email indicated by the user. Informs if the email doesn't exist.
 	 */
 	void removeEmailMenu();
 
-	/*
+	/**
 	 * Has options to run a search on the loaded emails or display the results, if
 	 * a search has previously been run.
 	 */
 	void searchMenu();
 
-	/*
+	/**
 	 * Displays general results of an email match search.
 	 */
 	void displayResults();
 
-	/*
+	/**
 	 * Displays the results of an email with more detail and in a more readable format.
 	 * @param email The email to display.
 	 */
 	void displayEmailResults(Email email);
 
-	/*
+	/**
 	 * Loads a batch of emails in the form number.txt from the interval firstEmailNumber to lastEmailNumber
 	 * @param firstEmailNumber Index for the first email in the email interval.
 	 * @param lastEmailNumber Index for the last email in the email interval.
 	 */
 	void batchLoad(int firstEmailNumber, int lastEmailNumber);
 
-	/*
+	/**
 	 * Loads user info from the file given in the filename.
 	 * @param filename The file's filename
 	 *
@@ -154,7 +152,7 @@ public:
 	 */
 	bool loadUsers(const string& filename);
 
-	/*
+	/**
 	 * Saves the current user info to a file given by filename.
 	 * @param filename The file's filename
 	 *
@@ -162,7 +160,7 @@ public:
 	 */
 	bool saveUsers(const string& filename);
 
-	/*
+	/**
 	 * Checks if an email exists in the email vector given. That is, if an email with the same filename exists.
 	 * @param email The email to check the existence of.
 	 * @param emails The email vector to check at.
