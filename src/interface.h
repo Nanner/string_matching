@@ -26,7 +26,6 @@ using namespace std;
 #define EQUALS '='
 #define USER "USER"
 #define INTEREST "INTEREST"
-#define USER_FILE "users.txt"
 
 #define DISPLAY_FORMAT "%-6s | %-14s | %-6s | %-8s \n"
 #define DISPLAY_FORMAT_RESULT "%-6d | %-14s | %-6d | %-8.2f\n"

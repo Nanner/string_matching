@@ -19,9 +19,9 @@
 #include "stringAlgorithms.h"
 #include "result.h"
 
-//#if defined __APPLE__ || defined linux || defined (__CYGWIN32__)
+#if defined __APPLE__ || defined linux || defined (__CYGWIN32__)
 #define USE_TIMER
-//#endif
+#endif
 
 #ifdef USE_TIMER
 #include <sys/time.h>
@@ -36,6 +36,7 @@ using namespace std;
  * The matcher class will handle receiving contents and matching them with certain keywords, using the best string matching algorithms for the given situation.
  */
 class Matcher {
+    static bool performanceMode;
     
 public:
 
@@ -78,6 +79,12 @@ public:
      * @param keywords The keywords to match.
      */
     static void findMatches(Email &email, const string& keywords);
+    
+    /**
+     * Activates benchmark to test the string matching algorithms performance times.
+     * @param performanceOn If the performance mode will be switched on.
+     */
+    static void setPerformanceMode(bool performanceOn);
 
 #ifdef USE_TIMER
     /**

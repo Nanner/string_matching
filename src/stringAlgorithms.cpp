@@ -37,8 +37,9 @@ vector<int> StringAlgorithms::KMP(string S, string K)
 
     return matches;
 }
-// Boyer moore came from 
+
+// Boyer moore implementation in 
 // http://www-igm.univ-mlv.fr/~lecroq/string/node14.html#SECTION0014
 
-// interesting stuff in
+// Very interesting matching algorithm and analysis
 // http://volnitsky.com/project/str_search/
