@@ -8,7 +8,7 @@
 
 #include "parser.h"
 
-string Parser::ignoreList = Parser::parseIgnoreList(IGNORE_LIST);
+string Parser::ignoreList = Parser::initializeIgnoreList();
 
 string Parser::parseEmail(string filename) {
 	ifstream file;
@@ -22,11 +22,24 @@ string Parser::parseEmail(string filename) {
 		getline(file, line);
 		contents += line;
 		contents += '\n';
-        contents.erase(remove_if(contents.begin(), contents.end(), (int(*)(int))ispunct), contents.end());
+		contents.erase(remove_if(contents.begin(), contents.end(), (int(*)(int))ispunct), contents.end());
 	}
 	transform(contents.begin(), contents.end(), contents.begin(), ::tolower);
 	file.close();
 	return contents;
+}
+
+string Parser::initializeIgnoreList() {
+	string list = "";
+	try {
+		list = parseIgnoreList(IGNORE_LIST);
+	}
+	catch(FileNotFound& nf) {
+		cout << "ignoreList.txt not found, using an empty one!" << endl;
+		return "";
+	}
+
+	return list;
 }
 
 string Parser::parseIgnoreList(string filename) {
@@ -47,7 +60,6 @@ string Parser::parseIgnoreList(string filename) {
 	return contents;
 }
 
-//TODO exception
 Email Parser::parseEmailToObject(string filename) {
 	string content;
 	try {

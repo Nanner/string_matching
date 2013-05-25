@@ -34,6 +34,12 @@ public:
 	static string ignoreList; /**< A string containing a list of words to be ignored during word matching. */
 
 	/**
+	 * Initializes the ignoreList variable.
+	 * @return A string with the ignore list contents (empty if ignoreList.txt hasn't been found).
+	 */
+	static string initializeIgnoreList();
+
+	/**
 	 * Opens a file and parses it's contents to a formatted string.
 	 * @param filename The name of the file with the contents.
 	 * @return String with the formatted contents.
