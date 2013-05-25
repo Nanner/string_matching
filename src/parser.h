@@ -26,25 +26,30 @@ class Email;
  * Parses a text file (email message) to a string that can be used for matching purposes.
  */
 class Parser {
-    
+
 public:
 	static string ignoreList;
 
-    /**
-     * Opens a file and parses it's contents to a formatted string.
-     * @param filename The name of the file with the contents.
-     * @return String with the formatted contents.
-     */
-    static string parseEmail(string filename);
-    
-    /**
-     * Parses a text file to an Email object.
-     * @param filename The name of the file with the contents.
-     * @return Email object with the contents of the file.
-     */
-    static Email parseEmailToObject(string filename);
+	/**
+	 * Opens a file and parses it's contents to a formatted string.
+	 * @param filename The name of the file with the contents.
+	 * @return String with the formatted contents.
+	 */
+	static string parseEmail(string filename);
 
-    static string parseIgnoreList(string filename);
+	/**
+	 * Parses a text file to an Email object.
+	 * @param filename The name of the file with the contents.
+	 * @return Email object with the contents of the file.
+	 */
+	static Email parseEmailToObject(string filename);
+
+	/**
+	 * Parses the words in a word ignore list to a formatted string.
+	 * @param filename The name of the file with the ignore list.
+	 * @return String with the formatted ignore list.
+	 */
+	static string parseIgnoreList(string filename);
 };
 
 class FileNotFound {
