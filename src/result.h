@@ -1,3 +1,14 @@
+//  result.h
+//
+//  Projeto 2 CAL
+//
+//  Turma 1 Grupo D
+//
+//  ei11089 - Diogo Santos
+//  ei11122 - Pedro Fernandes
+//  ei11132 - Daniel Pereira
+//
+
 #ifndef _result_h
 #define _result_h
 

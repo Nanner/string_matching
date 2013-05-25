@@ -1,3 +1,14 @@
+//  email.h
+//
+//  Projeto 2 CAL
+//
+//  Turma 1 Grupo D
+//
+//  ei11089 - Diogo Santos
+//  ei11122 - Pedro Fernandes
+//  ei11132 - Daniel Pereira
+//
+
 #ifndef _email_h
 #define _email_h
 

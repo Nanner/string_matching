@@ -1,9 +1,12 @@
-//
 //  match.h
-//  Strings
 //
-//  Created by pedro on 5/22/13.
-//  Copyright (c) 2013 feup. All rights reserved.
+//  Projeto 2 CAL
+//
+//  Turma 1 Grupo D
+//
+//  ei11089 - Diogo Santos
+//  ei11122 - Pedro Fernandes
+//  ei11132 - Daniel Pereira
 //
 
 #ifndef _match_h
