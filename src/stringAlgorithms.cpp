@@ -27,12 +27,12 @@ vector<int> StringAlgorithms::KMP(string S, string K)
 
     int sp = 0;
     int kp = 0;
-    while(sp < S.size())
+    while(sp < (int)S.size())
     {
-        while(kp != -1 && (kp == K.size() || K[kp] != S[sp])) kp = T[kp];
+        while(kp != -1 && (kp == (int)K.size() || K[kp] != S[sp])) kp = T[kp];
         kp++;
         sp++;
-        if(kp == K.size()) matches.push_back(sp - (int)K.size());
+        if(kp == (int)K.size()) matches.push_back(sp - (int)K.size());
     }
 
     return matches;
