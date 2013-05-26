@@ -108,12 +108,11 @@ void Result::printMatches() {
 
 	for(; it != tmpMatches.end(); it++) {
 		string keyword = it->getFoundString();
-		string lines;
-		lines = SSTR(it->getLine());
+		stringstream lines (it->getLine());
 		int hits = 1;
 		for(it2 = it + 1; it2 != tmpMatches.end(); ) {
 			if(it->getFoundString().compare(it2->getFoundString()) == 0) {
-				lines += ", " + SSTR(it2->getLine());
+				lines << ", " << it2->getLine();
 				hits++;
 				it2 = tmpMatches.erase(it2);
 			}
@@ -122,7 +121,7 @@ void Result::printMatches() {
 			}
 		}
 
-		printf(MATCH_DISPLAY_FORMAT_RESULT, keyword.c_str(), hits, lines.c_str());
+		printf(MATCH_DISPLAY_FORMAT_RESULT, keyword.c_str(), hits, (lines.str()).c_str());
 	}
 
 
