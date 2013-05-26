@@ -108,7 +108,8 @@ void Result::printMatches() {
 
 	for(; it != tmpMatches.end(); it++) {
 		string keyword = it->getFoundString();
-		stringstream lines (it->getLine());
+		stringstream lines;
+        lines << (it->getLine());
 		int hits = 1;
 		for(it2 = it + 1; it2 != tmpMatches.end(); ) {
 			if(it->getFoundString().compare(it2->getFoundString()) == 0) {
